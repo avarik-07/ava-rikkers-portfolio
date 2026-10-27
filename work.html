@@ -4,337 +4,355 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects &amp; Leadership — Ava Rikkers</title>
-<meta name="description" content="Projects and leadership by Ava Rikkers: Sage Circle, research, Kulterra Collective, writing and service.">
+<meta name="description" content="All of Ava Rikkers' projects, writing and service.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
 <style>
-/* Layout: one centered reading column, like a well-set résumé. Rows share one grid (date | content) separated by hairlines; sage is the only accent */
+/* Layout: an editorial studio portfolio. Forest-green intro and footer frame a paper-white page; one giant statement, then a numbered work index with hover previews; each project opens into a case study */
 :root {
-  --bg: #FBFAF7;
-  --ink: #1B1F1A;
-  --muted: #646B61;
-  --line: #E2E4DC;
-  --sage: #2F3A2B;
-  --sage-mid: #5E7257;
-  --sage-tint: #ECEFE6;
+  --paper: #F3F1EA;
+  --ink: #141A13;
+  --muted: #5F675C;
+  --line: #D9DBD0;
+  --forest: #1D281C;
+  --on-forest: #EEF1E6;
+  --sage: #5E7257;
+  --leaf: #C4D69B;
   --mint: #7CC7BF;
   --f-display: "Cormorant", Garamond, "Times New Roman", serif;
   --f-body: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #131612; --ink: #ECEEE8; --muted: #A2A99D; --line: #2A2F28;
-    --sage: #CFDCC6; --sage-mid: #A9BEA0; --sage-tint: #1C211A; --mint: #7CC7BF;
+    --paper: #11160F; --ink: #ECEFE6; --muted: #A3AB9F; --line: #283026; --forest: #0B0F0A; --on-forest: #EEF1E6; --sage: #A9BEA0;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #131612; --ink: #ECEEE8; --muted: #A2A99D; --line: #2A2F28;
-  --sage: #CFDCC6; --sage-mid: #A9BEA0; --sage-tint: #1C211A; --mint: #7CC7BF;
+  --paper: #11160F; --ink: #ECEFE6; --muted: #A3AB9F; --line: #283026; --forest: #0B0F0A; --on-forest: #EEF1E6; --sage: #A9BEA0;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
-body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; }
-.wrap {
-  max-width: 880px; margin: 0 auto;
-  padding-left: max(20px, env(safe-area-inset-left, 0px));
-  padding-right: max(20px, env(safe-area-inset-right, 0px));
-}
-a { color: inherit; text-decoration-color: var(--sage-mid); text-underline-offset: 3px; }
-a:hover { color: var(--sage-mid); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--sage-mid); outline-offset: 3px; border-radius: 4px; }
-h1, h2, h3 { margin: 0; text-wrap: balance; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; text-decoration-color: var(--sage); text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sage); outline-offset: 4px; border-radius: 4px; }
+h1, h2, h3 { margin: 0; font-weight: 500; text-wrap: balance; }
 p { margin: 0; }
+em { font-family: var(--f-display); font-style: italic; font-weight: 500; }
+.label { font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); }
 
-/* Header & footer */
-.site-head { border-bottom: 1px solid var(--line); }
-.site-head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 22px; }
-.mark { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: 27px; line-height: 1; text-decoration: none; }
-.mark:hover { color: inherit; }
-.mark span { color: var(--sage-mid); }
-.site-head nav { display: flex; gap: 26px; font-size: 15px; }
-.site-head nav a { text-decoration: none; color: var(--muted); padding-block: 4px; border-bottom: 1.5px solid transparent; }
-.site-head nav a:hover { color: var(--ink); }
-.site-head nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--sage-mid); }
-.site-foot { border-top: 1px solid var(--line); margin-top: 96px; }
-.site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 24px; padding-block: 28px 44px; font-size: 14px; color: var(--muted); }
-.site-foot .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.site-foot a { text-decoration: none; }
-.site-foot a:hover { text-decoration: underline; }
+/* ---------- intro (first visit only, added by script) */
+.intro-screen { position: fixed; inset: 0; z-index: 100; background: var(--forest); color: var(--on-forest); display: grid; place-items: center; transition: transform .9s cubic-bezier(.7,0,.2,1); }
+.intro-screen.gone { transform: translateY(-100%); }
+.intro-screen .mono { width: min(260px, 52vw); height: auto; }
+.intro-screen .mono path { fill: none; stroke: var(--leaf); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 1.4s ease forwards; }
+.intro-screen .word { position: absolute; font-family: var(--f-display); font-size: clamp(54px, 11vw, 140px); letter-spacing: .04em; opacity: 0; animation: rise .8s .35s ease forwards; }
+.intro-screen small { position: absolute; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); font-size: 11px; letter-spacing: .3em; text-transform: uppercase; opacity: .6; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-/* Section scaffolding */
-main .wrap { display: grid; gap: 88px; padding-block: 56px 0; }
-.label { font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-mid); }
-.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
-.sec-head h2 { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(32px, 4.4vw, 42px); line-height: 1.05; }
-.sec-head .aside { font-size: 14px; color: var(--muted); }
+/* ---------- header */
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--paper); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 18px; flex-wrap: wrap; }
+.mark { font-family: var(--f-display); font-style: italic; font-size: 26px; line-height: 1; text-decoration: none; }
+.mark b { font-weight: 500; color: var(--sage); }
+.site-head nav { display: flex; gap: 28px; font-size: 15px; }
+.site-head nav a { text-decoration: none; color: var(--muted); }
+.site-head nav a:hover, .site-head nav a[aria-current="page"] { color: var(--ink); }
+.site-head nav a[aria-current="page"]::before { content: "● "; color: var(--sage); font-size: 9px; vertical-align: 2px; }
 
-/* Intro */
-.intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 44px; align-items: center; }
-.intro .text { display: grid; gap: 18px; }
-.intro h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(50px, 8vw, 84px); line-height: .95; letter-spacing: -.01em; }
-.intro h1 em { color: var(--sage-mid); }
-.intro .lead { font-size: 18.5px; max-width: 40ch; }
-.now { display: grid; gap: 6px; padding: 14px 0 0; border-top: 1px solid var(--line); font-size: 15px; }
-.now div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; }
-.now dt, .now .k { color: var(--muted); }
-.cta { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn {
-  display: inline-flex; align-items: center; gap: 6px; font: 500 15px/1 var(--f-body); text-decoration: none; cursor: pointer;
-  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink);
-}
-.btn:hover { border-color: var(--sage-mid); color: var(--ink); }
-.btn.solid { background: var(--sage); border-color: var(--sage); color: var(--bg); }
-.btn.solid:hover { background: var(--sage-mid); border-color: var(--sage-mid); color: var(--bg); }
-.photo { position: relative; margin: 0; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; background: linear-gradient(180deg, #8C8FB0, #D99A7A 60%, #8E8A80); }
-.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo figcaption { position: absolute; left: 12px; bottom: 12px; font-size: 12px; font-weight: 500; color: #1B1F1A; background: rgba(251,250,247,.86); padding: 5px 10px; border-radius: 999px; }
+/* ---------- hero statement */
+.hero { padding-block: clamp(56px, 10vw, 140px) clamp(48px, 7vw, 96px); display: grid; gap: 40px; }
+.statement { font-size: clamp(38px, 6.4vw, 92px); line-height: 1.02; letter-spacing: -.025em; font-weight: 500; max-width: 15ch; }
+.statement em { color: var(--sage); letter-spacing: -.01em; }
+.statement .w { display: inline-block; animation: wordin .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes wordin { from { transform: translateY(.35em); opacity: .15; } to { transform: none; opacity: 1; } }
+.hero-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; border-top: 1px solid var(--line); padding-top: 22px; }
+.hero-foot p { max-width: 46ch; color: var(--muted); }
+.scroll-cue { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.scroll-cue span { display: inline-block; animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(4px); } }
 
-/* Rows: the one repeated unit */
+/* ---------- marquee */
+.marquee { background: var(--forest); color: var(--on-forest); overflow: hidden; padding-block: 18px; white-space: nowrap; }
+.marquee .track { display: inline-flex; gap: 48px; animation: slide 38s linear infinite; font-family: var(--f-display); font-style: italic; font-size: clamp(24px, 3vw, 36px); }
+.marquee .track span::after { content: "✳"; font-style: normal; color: var(--leaf); margin-left: 48px; font-size: .6em; vertical-align: .25em; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- work index */
+.section { padding-block: clamp(64px, 9vw, 120px) 0; }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
+.sec-head h2 { font-size: clamp(30px, 4vw, 48px); letter-spacing: -.02em; }
+.sec-head a, .sec-head span { font-size: 15px; color: var(--muted); }
+.index { border-top: 1px solid var(--ink); }
+.item { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding-block: 26px; border-bottom: 1px solid var(--line); text-decoration: none; position: relative; }
+.item .n { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.item h3 { font-size: clamp(28px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -.025em; transition: transform .45s cubic-bezier(.2,.7,.2,1), color .3s; }
+.item .meta { font-size: 14px; color: var(--muted); text-align: right; white-space: nowrap; }
+.item .thumb { display: none; }
+.item:hover h3, .item:focus-visible h3 { transform: translateX(14px); color: var(--sage); }
+.preview { position: fixed; z-index: 30; width: 300px; aspect-ratio: 4 / 3; max-width: 100%; border-radius: 14px; overflow: hidden; pointer-events: none; opacity: 0; transform: translate(-50%, -50%) scale(.85) rotate(-3deg); transition: opacity .25s, transform .35s cubic-bezier(.2,.7,.2,1); background: var(--forest); }
+.preview.on { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-3deg); }
+.preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- about */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 56px; }
+.about .big { font-family: var(--f-display); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.2; }
 .rows { border-top: 1px solid var(--line); }
-.row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 28px; padding-block: 24px; border-bottom: 1px solid var(--line); }
-.row .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
-.row h3 { font-size: 18px; font-weight: 700; line-height: 1.35; }
-.row .where { font-size: 14.5px; color: var(--sage-mid); margin-top: 2px; }
-.row p.d { margin-top: 8px; max-width: 62ch; }
-.row .more { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 8px; font-size: 14px; font-weight: 500; }
+.row { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 20px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.row .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.row h3 { font-size: 17px; font-weight: 700; line-height: 1.35; }
+.row h3 a { text-decoration: none; }
+.row h3 a:hover { color: var(--sage); }
+.row .org { color: var(--sage); font-size: 15px; }
+.row p.d { color: var(--muted); font-size: 15px; margin-top: 6px; max-width: 64ch; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pills span { font-size: 14px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); }
+.sub-h { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); margin: 40px 0 12px; }
 
-/* Places line */
-.places { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-.places span { font-size: 13px; letter-spacing: .06em; padding: 6px 12px; border: 1px dashed var(--sage-mid); border-radius: 6px; color: var(--sage-mid); }
+/* ---------- case study */
+.case-hero { padding-block: clamp(48px, 8vw, 110px) 36px; display: grid; gap: 22px; }
+.case-hero h1 { font-size: clamp(44px, 8vw, 116px); line-height: .98; letter-spacing: -.035em; max-width: 14ch; }
+.case-hero .lede { font-family: var(--f-display); font-style: italic; font-size: clamp(24px, 3vw, 36px); color: var(--sage); max-width: 30ch; line-height: 1.2; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; border-top: 1px solid var(--ink); padding-top: 18px; }
+.facts div { display: grid; gap: 4px; font-size: 15px; }
+.facts dt { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; }
+.cover { position: relative; margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 21 / 9; max-width: 100%; background: var(--forest); display: grid; place-items: center; }
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); animation: settle 1.6s cubic-bezier(.2,.7,.2,1) forwards; }
+.cover .logo { position: relative; width: clamp(110px, 16vw, 180px); height: auto; z-index: 1; filter: drop-shadow(0 10px 30px rgba(0,0,0,.35)); }
+@keyframes settle { to { transform: scale(1); } }
+.case-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 56px; padding-block: clamp(56px, 8vw, 100px) 0; }
+.case-body h2 { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); font-weight: 500; }
+.case-body .overview { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.35; letter-spacing: -.01em; }
+.did { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); counter-reset: did; }
+.did li { counter-increment: did; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.did li::before { content: counter(did, decimal-leading-zero); color: var(--muted); font-size: 14px; padding-top: 2px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 2px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.stats div { background: var(--paper); padding: 26px 22px; display: grid; gap: 6px; }
+.stats b { font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -.03em; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stats span { color: var(--muted); font-size: 15px; }
+.case-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; font: 500 15px/1 var(--f-body); text-decoration: none; cursor: pointer; padding: 13px 20px; border-radius: 999px; border: 1px solid var(--ink); background: transparent; color: var(--ink); transition: background .2s, color .2s; }
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.solid { background: var(--ink); color: var(--paper); }
+.btn.solid:hover { background: var(--sage); border-color: var(--sage); }
+.next { display: block; text-decoration: none; border-top: 1px solid var(--ink); margin-top: clamp(64px, 9vw, 120px); padding-block: 28px; }
+.next .label { display: block; margin-bottom: 8px; }
+.next b { font-size: clamp(34px, 6vw, 84px); font-weight: 500; letter-spacing: -.03em; line-height: 1; display: inline-block; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.next:hover b { transform: translateX(16px); color: var(--sage); }
 
-/* Skills */
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.pills span { font-size: 14.5px; padding: 8px 15px; border-radius: 999px; background: var(--sage-tint); }
+/* ---------- work page extras */
+.page-hero { padding-block: clamp(48px, 8vw, 110px) 12px; display: grid; gap: 14px; }
+.page-hero h1 { font-size: clamp(52px, 9vw, 130px); line-height: .95; letter-spacing: -.035em; }
+.page-hero h1 em { color: var(--sage); }
+.offclock { font-family: var(--f-display); font-style: italic; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.3; max-width: 30ch; }
+.offclock span { color: var(--sage); font-style: normal; padding-inline: 6px; }
 
-/* Work page */
-.page-title { display: grid; gap: 10px; }
-.page-title h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(50px, 8vw, 80px); line-height: 1; }
-.page-title h1 em { color: var(--sage-mid); }
-.page-title p { color: var(--muted); max-width: 54ch; font-size: 17.5px; }
-.feature { background: var(--sage-tint); border-radius: 22px; padding: 30px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px 30px; align-items: center; }
-.feature .logo { width: 116px; height: 116px; display: block; }
-.feature .copy { display: grid; gap: 10px; }
-.feature h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(32px, 4.4vw, 42px); line-height: 1; }
-.feature p.d { max-width: 58ch; }
-.feature a { font-weight: 500; font-size: 15px; }
-.offclock { font-family: var(--f-display); font-style: italic; font-size: clamp(22px, 3vw, 28px); line-height: 1.45; margin-top: 8px; max-width: 34ch; }
-.offclock span { color: var(--sage-mid); font-style: normal; padding-inline: 4px; }
+/* ---------- footer CTA */
+.cta-foot { background: var(--forest); color: var(--on-forest); margin-top: clamp(80px, 10vw, 140px); }
+.cta-foot .wrap { padding-block: clamp(64px, 9vw, 120px) 36px; display: grid; gap: 28px; }
+.cta-foot .label { color: var(--leaf); }
+.cta-foot h2 { font-size: clamp(56px, 11vw, 160px); line-height: .9; letter-spacing: -.04em; }
+.cta-foot h2 em { color: var(--leaf); }
+.cta-foot .email { font-size: clamp(22px, 3.4vw, 40px); text-decoration: none; border-bottom: 2px solid var(--mint); justify-self: start; overflow-wrap: anywhere; }
+.cta-foot .email:hover { color: var(--leaf); }
+.cta-foot .bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 24px; border-top: 1px solid rgba(238,241,230,.18); padding-top: 22px; margin-top: 28px; font-size: 14px; color: rgba(238,241,230,.7); }
+.cta-foot .bottom a { text-decoration: none; }
+.cta-foot .bottom a:hover { color: var(--leaf); }
+.cta-foot .bottom .links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.copy-btn { font: 500 14px/1 var(--f-body); color: var(--forest); background: var(--leaf); border: 0; border-radius: 999px; padding: 11px 18px; cursor: pointer; justify-self: start; }
 
-/* Contact page */
-.hello { display: grid; gap: 20px; padding-top: 24px; }
-.hello h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(56px, 10vw, 104px); line-height: .95; }
-.hello h1 em { color: var(--sage-mid); }
-.hello .lead { font-size: 19px; color: var(--muted); max-width: 44ch; }
-.email { font-size: clamp(26px, 5.4vw, 50px); font-weight: 700; letter-spacing: -.01em; text-decoration: none; overflow-wrap: anywhere; border-bottom: 2px solid var(--mint); justify-self: start; line-height: 1.2; }
-.email:hover { color: var(--sage-mid); }
+/* ---------- contact page */
+.hello { padding-block: clamp(56px, 10vw, 140px) 0; display: grid; gap: 26px; }
+.hello h1 { font-size: clamp(64px, 13vw, 190px); line-height: .88; letter-spacing: -.045em; }
+.hello h1 em { color: var(--sage); }
+.hello .lead { font-size: 20px; color: var(--muted); max-width: 44ch; }
+.hello .email { font-size: clamp(26px, 5vw, 56px); font-weight: 500; letter-spacing: -.02em; text-decoration: none; border-bottom: 2px solid var(--mint); justify-self: start; overflow-wrap: anywhere; line-height: 1.15; }
+.hello .email:hover { color: var(--sage); }
 
-@media (max-width: 720px) {
-  main .wrap { gap: 64px; padding-block: 36px 0; }
-  .intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .photo { aspect-ratio: 16 / 10; order: -1; }
-  .row { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 20px; }
-  .feature { grid-template-columns: minmax(0, 1fr); padding: 22px; }
-  .feature .logo { width: 80px; height: 80px; }
+/* ---------- reveal on scroll (content is visible without it) */
+.js .reveal { transform: translateY(24px); opacity: .001; transition: transform .9s cubic-bezier(.2,.7,.2,1), opacity .9s; }
+.js .reveal.in { transform: none; opacity: 1; }
+
+@media (max-width: 820px) {
+  .about, .case-body { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cover { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 640px) {
+  .item { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .item .meta { text-align: left; }
+  .item .thumb { display: block; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; max-width: 100%; background: var(--forest); }
+  .item .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-foot { grid-template-columns: minmax(0, 1fr); }
   .site-head nav { gap: 18px; }
-  .sec-head { flex-wrap: wrap; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { transform: none; opacity: 1; }
+  .intro-screen { display: none; }
 }
 </style>
 </head>
 <body>
 <header class="site-head">
   <div class="wrap">
-    <a class="mark" href="./">Ava Rikkers<span>.</span></a>
+    <a class="mark" href="./">Ava Rikkers<b>.</b></a>
     <nav aria-label="Site"><a href="./">Home</a><a href="work.html" aria-current="page">Work</a><a href="contact.html">Contact</a></nav>
   </div>
 </header>
 
 <main>
-  <div class="wrap">
+  <section class="wrap page-hero">
+    <p class="label">Projects &amp; Leadership</p>
+    <h1>Things I've <em>built.</em></h1>
+  </section>
 
-    <header class="page-title">
-      <p class="label">Projects &amp; Leadership</p>
-      <h1>Things I've <em>built.</em></h1>
-    </header>
+  <section class="wrap section" style="padding-top:40px">
+    <div class="index">
+      <a class="item" href="case-sage-circle.html" data-img="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=700&q=80">
+        <span class="n">01</span>
+        <h3>Sage Circle</h3>
+        <span class="meta">Venture · Product · 2026</span>
+        <span class="thumb"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></span>
+      </a>
+      <a class="item" href="case-ai-nutrition.html" data-img="https://images.unsplash.com/photo-1723306743407-cb6ac8f19941?auto=format&fit=crop&w=700&q=80">
+        <span class="n">02</span>
+        <h3>AI, Nutrition &amp; Global Health</h3>
+        <span class="meta">Research · 2026</span>
+        <span class="thumb"><img src="https://images.unsplash.com/photo-1723306743407-cb6ac8f19941?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></span>
+      </a>
+      <a class="item" href="case-kulterra.html" data-img="https://images.unsplash.com/photo-1559057287-ce0f595679a8?auto=format&fit=crop&w=700&q=80">
+        <span class="n">03</span>
+        <h3>Kulterra Collective</h3>
+        <span class="meta">Community · Writing · 2026</span>
+        <span class="thumb"><img src="https://images.unsplash.com/photo-1559057287-ce0f595679a8?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></span>
+      </a>
+      <a class="item" href="case-toast-ai-search.html" data-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80">
+        <span class="n">04</span>
+        <h3>Toast AI Search Visibility Study</h3>
+        <span class="meta">Brand Strategy · 2026</span>
+        <span class="thumb"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></span>
+      </a>
+      <a class="item" href="case-scm-club.html" data-img="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=700&q=80">
+        <span class="n">05</span>
+        <h3>Northeastern Supply Chain Management Club</h3>
+        <span class="meta">Leadership · 2026</span>
+        <span class="thumb"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></span>
+      </a>
+      <a class="item" href="case-city-guides.html" data-img="https://images.unsplash.com/photo-1492666673288-3c4b4576ad9a?auto=format&fit=crop&w=700&q=80">
+        <span class="n">06</span>
+        <h3>City Guides</h3>
+        <span class="meta">Writing · Guides · 2026</span>
+        <span class="thumb"><img src="https://images.unsplash.com/photo-1492666673288-3c4b4576ad9a?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></span>
+      </a>
+    </div>
+    <div class="preview" aria-hidden="true"><img alt=""></div>
+  </section>
 
-    <section class="feature" aria-label="Sage Circle">
-      <svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#2F3A2B"/><text x="60" y="82" text-anchor="middle" font-family="'Bodoni 72', Didot, 'Bodoni MT', 'Times New Roman', serif" font-size="70" fill="#F6F3EC">S</text><path d="M42 94 H78" stroke="#7CC7BF" stroke-width="2.5"/></svg>
-      <div class="copy">
-        <p class="label">Founder · Building now</p>
-        <h2>Sage Circle</h2>
-        <p class="d">An invite-only marketplace for secondhand designer clothing. Snap a few photos and the app identifies the piece, estimates what it's worth and gives it an environmental score — then sell it or donate it to charity.</p>
-        <a href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">@sagebyrefyndly on Instagram ↗</a>
-      </div>
-    </section>
+  <section class="wrap section" id="writing">
+    <div class="sec-head reveal"><h2>Writing</h2><a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Subscribe on Substack ↗</a></div>
+    <div class="rows reveal">
+      <div class="row"><span class="when">Oct 2026</span><div><h3><a href="https://www.kulterracollective.com/journal/ouwbr9n9997bge5oinxupqqhnrq5jv" target="_blank" rel="noopener">Notes on Passivity</a></h3><p class="org">Essay · Kulterra Collective</p></div></div>
+      <div class="row"><span class="when">Aug 2026</span><div><h3><a href="https://www.kulterracollective.com/journal/k71gleyb4nrotycroyf3yx61x9qs48" target="_blank" rel="noopener">Told to Forget</a></h3><p class="org">Essay · Kulterra Collective</p></div></div>
+      <div class="row"><span class="when">Jun 2026</span><div><h3><a href="https://www.kulterracollective.com/journal/timeless-or-naught" target="_blank" rel="noopener">Timeless, or naught</a></h3><p class="org">Essay · Kulterra Collective</p></div></div>
+      <div class="row"><span class="when">Mar 2026</span><div><h3><a href="https://www.kulterracollective.com/journal/the-drina" target="_blank" rel="noopener">The Drina</a></h3><p class="org">Essay · Kulterra Collective</p></div></div>
+    </div>
+  </section>
 
-    <section id="projects">
-      <div class="sec-head"><h2>Projects</h2><span class="aside">Research, ventures &amp; leadership</span></div>
-      <div class="rows">
-    <div class="row">
-      <span class="when">2026</span>
-      <div>
-      <h3>AI, Nutrition &amp; Global Health</h3>
-      <p class="where">Research · Barabási Lab</p>
-      <p class="d">Second author on a 13-page <em>Nature Health</em> perspective (under review). Mapped 1,170 data points across 195 countries in an interactive map showing where regulation lags AI adoption.</p>
-      </div>
+  <section class="wrap section" id="service">
+    <div class="sec-head reveal"><h2>Service</h2><span>Boston · Rio · Rome · Madison</span></div>
+    <div class="rows reveal">
+      <div class="row"><span class="when">Spring 2026</span><div><h3>Centro Para Ti</h3><p class="d">Rio de Janeiro · 20+ hours of volunteer workshops</p></div></div>
+      <div class="row"><span class="when">Boston</span><div><h3>Boston Cares · Rosie's Place · Volunteer Ventures MA</h3><p class="d">Plus Relay for Life and community events with the Celtics and Bruins</p></div></div>
+      <div class="row"><span class="when">Fall 2023</span><div><h3>John Cabot University Community Service</h3><p class="d">Rome · 15+ hours · JCU Community Service Certificate</p></div></div>
+      <div class="row"><span class="when">2020 — 2023</span><div><h3>Second Harvest / River Food Pantry · Clean Lakes Alliance</h3><p class="d">Madison, WI</p></div></div>
+      <div class="row"><span class="when">Now</span><div><h3>Mentoring</h3><p class="d">Supply Chain Management Club · WISE · International Business Student Ambassador Program</p></div></div>
     </div>
-    <div class="row">
-      <span class="when">2026</span>
-      <div>
-      <h3>Global Nutrition Data Map</h3>
-      <p class="where">Built with Claude Code</p>
-      <p class="d">An interactive world map scoring how much nutrition data each country has, from diet surveys to grocery scanner data, with 709 linked sources.</p>
-      <div class="more"><a href="nutrition-map.html">Explore the map →</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">2026</span>
-      <div>
-      <h3>Kulterra Collective</h3>
-      <p class="where">Co-Founder &amp; President</p>
-      <p class="d">Connected 120 high schoolers from Madison, Wisconsin to Cairo, Egypt through pen pal letters, now a writing collective publishing stories on culture and place.</p>
-      <div class="more"><a href="https://www.instagram.com/kulterracollective/" target="_blank" rel="noopener">@kulterracollective ↗</a><a href="https://www.kulterracollective.com/" target="_blank" rel="noopener">kulterracollective.com ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">2026</span>
-      <div>
-      <h3>Northeastern Supply Chain Management Club</h3>
-      <p class="where">President</p>
-      <p class="d">Leading a 15-person board and 100+ members through a club rebrand and 40+ industry speakers, within a $5K budget.</p>
-      <div class="more"><a href="https://nuscm.com/" target="_blank" rel="noopener">nuscm.com ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">2026</span>
-      <div>
-      <h3>Toast AI Search Visibility Study</h3>
-      <p class="where">Brand Strategy</p>
-      <p class="d">Tested how 5 LLMs portray Toast's employer brand across ~80 sources, leading to a company-wide generative engine optimization strategy.</p>
-      </div>
-    </div>
-      </div>
-    </section>
+  </section>
 
-    <section id="writing">
-      <div class="sec-head"><h2>Writing &amp; guides</h2><span class="aside"><a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Subscribe on Substack ↗</a></span></div>
-      <div class="rows">
-    <div class="row">
-      <span class="when">Oct 2026</span>
-      <div>
-      <h3>Notes on Passivity</h3>
-      <p class="where">Essay · Kulterra Collective</p>
-      <p class="d">A reminder to not let your default actions replace your intentions.</p>
-      <div class="more"><a href="https://www.kulterracollective.com/journal/ouwbr9n9997bge5oinxupqqhnrq5jv" target="_blank" rel="noopener">Read ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Aug 2026</span>
-      <div>
-      <h3>Told to Forget</h3>
-      <p class="where">Essay · Kulterra Collective</p>
-      <div class="more"><a href="https://www.kulterracollective.com/journal/k71gleyb4nrotycroyf3yx61x9qs48" target="_blank" rel="noopener">Read ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Jun 2026</span>
-      <div>
-      <h3>Timeless, or naught</h3>
-      <p class="where">Essay · Kulterra Collective</p>
-      <p class="d">“Isn't the most beautiful thing about a moment: realizing you are in it?”</p>
-      <div class="more"><a href="https://www.kulterracollective.com/journal/timeless-or-naught" target="_blank" rel="noopener">Read ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Mar 2026</span>
-      <div>
-      <h3>The Drina</h3>
-      <p class="where">Essay · Kulterra Collective</p>
-      <p class="d">“A narrative told is an imposition of perspective.”</p>
-      <div class="more"><a href="https://www.kulterracollective.com/journal/the-drina" target="_blank" rel="noopener">Read ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Ongoing</span>
-      <div>
-      <h3>City Guides</h3>
-      <p class="where">Boston · New York City</p>
-      <p class="d">My favorite spots for food, coffee, shopping and walks, written for friends. Every spot opens in Google Maps.</p>
-      <div class="more"><a href="boston-guide.html">Boston guide →</a><a href="nyc-guide.html">New York guide →</a></div>
-      </div>
-    </div>
-      </div>
-    </section>
-
-    <section id="service">
-      <div class="sec-head"><h2>Service</h2><span class="aside">Boston · Rio · Rome · Madison</span></div>
-      <div class="rows">
-    <div class="row">
-      <span class="when">Spring 2026</span>
-      <div>
-      <h3>Centro Para Ti</h3>
-      <p class="where">Rio de Janeiro, Brazil</p>
-      <p class="d">Ran volunteer workshops over Spring Break (20+ hours).</p>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Boston</span>
-      <div>
-      <h3>Boston Cares · Rosie's Place · Volunteer Ventures MA</h3>
-      <p class="where">Boston, MA</p>
-      <p class="d">Hands-on service across Boston organizations, plus Relay for Life and community events with the Boston Celtics and Boston Bruins.</p>
-      <div class="more"><a href="https://www.bostoncares.org/" target="_blank" rel="noopener">Boston Cares ↗</a><a href="https://www.rosiesplace.org/" target="_blank" rel="noopener">Rosie's Place ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Fall 2023</span>
-      <div>
-      <h3>John Cabot University Community Service</h3>
-      <p class="where">Rome, Italy</p>
-      <p class="d">15+ hours of volunteering while studying abroad. JCU Community Service Certificate.</p>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">2020 — 2023</span>
-      <div>
-      <h3>Second Harvest / River Food Pantry · Clean Lakes Alliance</h3>
-      <p class="where">Madison, WI</p>
-      <p class="d">Cooked meals for families in need, and helped clean Madison's lakes.</p>
-      <div class="more"><a href="https://www.secondharvestmadison.org/" target="_blank" rel="noopener">Second Harvest ↗</a><a href="https://www.cleanlakesalliance.org/" target="_blank" rel="noopener">Clean Lakes Alliance ↗</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <span class="when">Now</span>
-      <div>
-      <h3>Mentoring</h3>
-      <p class="where">Northeastern</p>
-      <p class="d">I mentor students through the Supply Chain Management Club, WISE and the International Business Student Ambassador Program.</p>
-      </div>
-    </div>
-      </div>
-    </section>
-
-    <section id="off-the-clock">
-      <div class="sec-head"><h2>Off the clock</h2></div>
-      <p class="offclock">Slalom skiing<span aria-hidden="true">·</span>Piano<span aria-hidden="true">·</span>Sewing<span aria-hidden="true">·</span>Nutrition<span aria-hidden="true">·</span>Volunteering<span aria-hidden="true">·</span>Par-3 golf<span aria-hidden="true">·</span>Meditation<span aria-hidden="true">·</span>Farmers markets<span aria-hidden="true">·</span>Euchre</p>
-    </section>
-
-  </div>
+  <section class="wrap section" id="off-the-clock">
+    <div class="sec-head reveal"><h2>Off the clock</h2></div>
+    <p class="offclock reveal">Slalom skiing<span aria-hidden="true">·</span>Piano<span aria-hidden="true">·</span>Sewing<span aria-hidden="true">·</span>Nutrition<span aria-hidden="true">·</span>Volunteering<span aria-hidden="true">·</span>Par-3 golf<span aria-hidden="true">·</span>Meditation<span aria-hidden="true">·</span>Farmers markets<span aria-hidden="true">·</span>Euchre</p>
+  </section>
 </main>
 
-<footer class="site-foot">
+<footer class="cta-foot">
   <div class="wrap">
-    <span>© 2026 Ava Rikkers · Boston, MA</span>
-    <div class="links">
-      <a href="mailto:avarikkers@gmail.com">Email</a>
-      <a href="https://www.kulterracollective.com/" target="_blank" rel="noopener">Kulterra Collective</a>
-      <a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Substack</a>
-      <a href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">Sage Circle</a>
-      <a href="https://www.pinterest.com/avarikkers/" target="_blank" rel="noopener">Ava's Lens</a>
+    <p class="label">Next step</p>
+    <h2>Let's <em>talk.</em></h2>
+    <a class="email" href="mailto:avarikkers@gmail.com">avarikkers@gmail.com</a>
+    <button class="copy-btn" type="button" data-copy="avarikkers@gmail.com">Copy email</button>
+    <div class="bottom">
+      <span>© 2026 Ava Rikkers · Boston, MA</span>
+      <div class="links">
+        <a href="https://www.kulterracollective.com/" target="_blank" rel="noopener">Kulterra</a>
+        <a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">Sage Circle</a>
+        <a href="https://www.pinterest.com/avarikkers/" target="_blank" rel="noopener">Ava's Lens</a>
+      </div>
     </div>
   </div>
 </footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Intro screen: home page, first visit per session only
+  if (document.body.dataset.intro === 'yes' && !reduce) {
+    var seen = false;
+    try { seen = sessionStorage.getItem('ar-intro') === '1'; sessionStorage.setItem('ar-intro', '1'); } catch (e) {}
+    if (!seen) {
+      var s = document.createElement('div');
+      s.className = 'intro-screen';
+      s.setAttribute('aria-hidden', 'true');
+      s.innerHTML = '<svg class="mono" viewBox="0 0 260 160" aria-hidden="true"><path d="M20 140 L70 20 L120 140 M42 92 H98 M150 140 V20 H195 C230 20 230 80 195 80 H150 M190 80 L240 140"/></svg><span class="word">Welcome</span><small>Ava Rikkers · Portfolio</small>';
+      document.body.appendChild(s);
+      setTimeout(function () { s.classList.add('gone'); }, 1700);
+      setTimeout(function () { s.remove(); }, 2700);
+    }
+  }
+
+  // Reveal blocks as they scroll in
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 4000);
+  } else {
+    els.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Floating image preview on the work index (mouse only)
+  var pv = document.querySelector('.preview');
+  if (pv && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var img = pv.querySelector('img');
+    document.querySelectorAll('.item[data-img]').forEach(function (it) {
+      it.addEventListener('mouseenter', function () { img.src = it.dataset.img; img.alt = ''; pv.classList.add('on'); });
+      it.addEventListener('mouseleave', function () { pv.classList.remove('on'); });
+      it.addEventListener('mousemove', function (e) { pv.style.left = (e.clientX + 170) + 'px'; pv.style.top = e.clientY + 'px'; });
+    });
+  }
+
+  // Copy email
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.dataset.copy, label = btn.textContent;
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = label; }, 1600); };
+      try { navigator.clipboard.writeText(text).then(done, function () { btn.textContent = text; }); } catch (e) { btn.textContent = text; }
+    });
+  });
+})();
+</script>
 </body>
 </html>
