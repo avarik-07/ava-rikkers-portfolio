@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boston Guide · Ava Rikkers</title>
+<meta name="description" content="Ava Rikkers' Boston guide: Some of my favourite spots for food, coffee, shopping, and walks!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+:root { --bg: #FFFFFF; --tile: #EFEDE9; --ink: #111111; --muted: #6B6862; --line: #E6E3DE; --chip: #EFEDE9;
+  --f-ui: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif; --f-name: "Cormorant", Garamond, "Times New Roman", serif; }
+@media (prefers-color-scheme: dark) { :root { --bg: #121212; --tile: #242322; --ink: #F3F1EE; --muted: #A5A19A; --line: #2E2D2B; --chip: #2A2928; color-scheme: dark; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-size: 16px; line-height: 1.55; }
+.page { max-width: 1080px; margin: 0 auto; padding: 24px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 40px; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.back { font-size: 14px; font-weight: 500; text-decoration: none; background: var(--chip); padding: 9px 16px; border-radius: 999px; justify-self: start; }
+.hero { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 21 / 9; min-height: 240px; max-width: 100%; background: var(--tile); }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55)); }
+.hero .t { position: absolute; left: 28px; right: 28px; bottom: 24px; z-index: 1; color: #fff; display: grid; gap: 6px; }
+.hero h1 { margin: 0; font-family: var(--f-name); font-style: italic; font-weight: 500; font-size: clamp(44px, 8vw, 88px); line-height: .95; }
+.hero p { margin: 0; font-size: 16px; opacity: .92; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a { font-size: 13.5px; font-weight: 500; text-decoration: none; background: var(--chip); padding: 7px 14px; border-radius: 999px; }
+.jump a:hover { filter: brightness(.95); }
+section { display: grid; gap: 16px; scroll-margin-top: 16px; }
+section h2 { margin: 0; font-size: clamp(24px, 3.4vw, 30px); font-weight: 700; letter-spacing: -.01em; }
+section .note { margin: -6px 0 0; color: var(--muted); max-width: 62ch; }
+.spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+.spot { border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; display: grid; gap: 4px; align-content: start; }
+.spot h3 { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.3; }
+.spot h3 a { text-decoration: none; }
+.spot h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.spot h3 span { font-weight: 400; color: var(--muted); font-size: 13px; margin-left: 4px; }
+.spot p { margin: 0; font-size: 14.5px; color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+@media (max-width: 600px) { .hero { aspect-ratio: 4 / 3; } .hero .t { left: 18px; right: 18px; bottom: 18px; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back" href="./#guides">← Ava Rikkers</a>
+  <header class="hero">
+    <img src="https://images.unsplash.com/photo-1726347921627-4e4b73e13f67?auto=format&fit=crop&w=1800&q=75" alt="Boston">
+    <div class="t"><h1>Boston Guide</h1><p>Some of my favourite spots for food, coffee, shopping, and walks!</p></div>
+  </header>
+  <nav class="jump" aria-label="Sections"><a href="#breakfast--brunch">Breakfast &amp; Brunch</a><a href="#lunch--dinner">Lunch &amp; Dinner</a><a href="#coffee--pastries">Coffee &amp; Pastries</a><a href="#ice-cream">Ice Cream</a><a href="#cocktails">Cocktails</a><a href="#shopping">Shopping</a><a href="#walks--neighborhoods">Walks &amp; Neighborhoods</a></nav>
+  <section id="breakfast--brunch">
+    <h2>Breakfast &amp; Brunch</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Sauvage+Boston+MA" target="_blank" rel="noopener">Cafe Sauvage</a></h3><p>I love this one! It&#x27;s French!</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=South+End+Buttery+Boston+MA" target="_blank" rel="noopener">South End Buttery</a></h3><p>Cozy, great food, and in a charming neighbourhood.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Friendly+Toast+Boston+MA" target="_blank" rel="noopener">Friendly Toast</a></h3><p>A fun diner-style spot with a creative menu.</p></div>
+    </div>
+  </section>
+  <section id="lunch--dinner">
+    <h2>Lunch &amp; Dinner</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Kava+Neo-Taverna+Boston+MA" target="_blank" rel="noopener">Kava Neo-Taverna</a></h3><p>My all-time favourite! Mediterranean food. Book res a day in advance.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+Red+Fox+Boston+MA" target="_blank" rel="noopener">The Red Fox</a></h3><p>North End speakeasy vibes with incredible food.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Lolita+Boston+MA" target="_blank" rel="noopener">Lolita</a></h3><p>Great Mexican food, fun drinks, and a somewhat &#x27;dungeon&#x27; atmosphere.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Sarma+Boston+MA" target="_blank" rel="noopener">Sarma</a></h3><p>Turkish-inspired food, rated as the best food in Boston.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Oleana+Boston+MA" target="_blank" rel="noopener">Oleana</a></h3><p>Amazing Mediterranean food, very unique, curated dishes.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Neptune+Oyster+Boston+MA" target="_blank" rel="noopener">Neptune Oyster</a></h3><p>Known for their oysters, clam chowder, and lobster rolls.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Strega%2C+Mamma+Maria%2C+Carmelina%27s%2C+Ciao+Roma+Boston+MA" target="_blank" rel="noopener">Strega, Mamma Maria, Carmelina&#x27;s, Ciao Roma</a></h3><p>ALL excellent Italian dinner spots in the North End.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Baleia+Boston+MA" target="_blank" rel="noopener">Baleia</a></h3><p>Amazing Portuguese food!!</p></div>
+    </div>
+  </section>
+  <section id="coffee--pastries">
+    <h2>Coffee &amp; Pastries</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Greystone+Cafe+Boston+MA" target="_blank" rel="noopener">Greystone Cafe</a></h3><p>Cutest café in the South End with amazing vibes and coffee.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=George+Howell+Boston+MA" target="_blank" rel="noopener">George Howell</a></h3><p>In the Theatre District. Probably the best coffee I&#x27;ve had in Boston.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Flour+Bakery+Boston+MA" target="_blank" rel="noopener">Flour Bakery</a></h3><p>Great coffee and even better pastries.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Tatte+Boston+MA" target="_blank" rel="noopener">Tatte</a></h3><p>A reliable Boston chain with cute cafés throughout the city.</p></div>
+    </div>
+  </section>
+  <section id="ice-cream">
+    <h2>Ice Cream</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Kyo+Matcha+Boston+MA" target="_blank" rel="noopener">Kyo Matcha</a></h3><p>If you like matcha, this is well worth it ($). Brookline.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Toscanini%27s+Boston+MA" target="_blank" rel="noopener">Toscanini&#x27;s</a></h3><p>So many fun flavours!</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=BerryLine+Boston+MA" target="_blank" rel="noopener">BerryLine</a></h3><p>Best froyo in Boston, and fun toppings. Cambridge.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=North+End+Creamery+Boston+MA" target="_blank" rel="noopener">North End Creamery</a></h3><p>Interesting flavours &amp; high quality.</p></div>
+    </div>
+  </section>
+  <section id="cocktails">
+    <h2>Cocktails</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Lolita+Boston+MA" target="_blank" rel="noopener">Lolita</a><span>Back Bay</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Barcelona+Wine+Bar+Boston+MA" target="_blank" rel="noopener">Barcelona Wine Bar</a><span>South End</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Farmacia+Boston+MA" target="_blank" rel="noopener">Farmacia</a><span>North End</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Zurito+Boston+MA" target="_blank" rel="noopener">Zurito</a><span>Beacon Hill</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+Red+Fox+Boston+MA" target="_blank" rel="noopener">The Red Fox</a><span>North End</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Marcelino%27s+Boston+MA" target="_blank" rel="noopener">Marcelino&#x27;s</a><span>Seaport</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=D16+Boston+MA" target="_blank" rel="noopener">D16</a><span>Back Bay</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Blind+Duck+Boston+MA" target="_blank" rel="noopener">Blind Duck</a><span>Back Bay</span></h3></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Equal+Measure+Boston+MA" target="_blank" rel="noopener">Equal Measure</a><span>Fenway</span></h3></div>
+    </div>
+  </section>
+  <section id="shopping">
+    <h2>Shopping</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Newbury+Street+Boston+MA" target="_blank" rel="noopener">Newbury Street</a></h3><p>Boutiques, big brands, and cafés.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Charles+Street+Boston+MA" target="_blank" rel="noopener">Charles Street</a></h3><p>Small shops in Beacon Hill&#x27;s most charming area.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Seaport+Boulevard+Boston+MA" target="_blank" rel="noopener">Seaport Boulevard</a></h3><p>Trendy, modern shopping with waterfront views.</p></div>
+    </div>
+  </section>
+  <section id="walks--neighborhoods">
+    <h2>Walks &amp; Neighborhoods</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Newbury+St+%E2%86%92+Boston+Common+%E2%86%92+Charles+St+Boston+MA" target="_blank" rel="noopener">Newbury St → Boston Common → Charles St</a></h3><p>A perfect Boston stroll.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Charles+River+Esplanade+Boston+MA" target="_blank" rel="noopener">Charles River Esplanade</a></h3><p>Walk or bike along the water.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Beacon+Hill+Boston+MA" target="_blank" rel="noopener">Beacon Hill</a></h3><p>Stroll through Louisburg Square and admire the brownstones.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Seaport+Boston+MA" target="_blank" rel="noopener">Seaport</a></h3><p>Modern and lively, with pop-up markets and waterfront views.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Fenway+%E2%86%92+Emerald+Necklace+Boston+MA" target="_blank" rel="noopener">Fenway → Emerald Necklace</a></h3><p>A pretty area (especially if you&#x27;re near the Victory Gardens), but skippable if short on time.</p></div>
+    </div>
+  </section>
+  <footer><span>By Ava Rikkers · <a href="./">avarikkers.com</a></span><span>Tap a spot to open it in Google Maps · Cover photo from <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></span></footer>
+</div>
+</body>
+</html>

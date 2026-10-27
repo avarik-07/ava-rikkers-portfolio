@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New York City Guide · Ava Rikkers</title>
+<meta name="description" content="Ava Rikkers' New York City guide: Some of my favorite spots for food, coffee, shopping, and walks!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+:root { --bg: #FFFFFF; --tile: #EFEDE9; --ink: #111111; --muted: #6B6862; --line: #E6E3DE; --chip: #EFEDE9;
+  --f-ui: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif; --f-name: "Cormorant", Garamond, "Times New Roman", serif; }
+@media (prefers-color-scheme: dark) { :root { --bg: #121212; --tile: #242322; --ink: #F3F1EE; --muted: #A5A19A; --line: #2E2D2B; --chip: #2A2928; color-scheme: dark; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-size: 16px; line-height: 1.55; }
+.page { max-width: 1080px; margin: 0 auto; padding: 24px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 40px; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.back { font-size: 14px; font-weight: 500; text-decoration: none; background: var(--chip); padding: 9px 16px; border-radius: 999px; justify-self: start; }
+.hero { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 21 / 9; min-height: 240px; max-width: 100%; background: var(--tile); }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55)); }
+.hero .t { position: absolute; left: 28px; right: 28px; bottom: 24px; z-index: 1; color: #fff; display: grid; gap: 6px; }
+.hero h1 { margin: 0; font-family: var(--f-name); font-style: italic; font-weight: 500; font-size: clamp(44px, 8vw, 88px); line-height: .95; }
+.hero p { margin: 0; font-size: 16px; opacity: .92; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a { font-size: 13.5px; font-weight: 500; text-decoration: none; background: var(--chip); padding: 7px 14px; border-radius: 999px; }
+.jump a:hover { filter: brightness(.95); }
+section { display: grid; gap: 16px; scroll-margin-top: 16px; }
+section h2 { margin: 0; font-size: clamp(24px, 3.4vw, 30px); font-weight: 700; letter-spacing: -.01em; }
+section .note { margin: -6px 0 0; color: var(--muted); max-width: 62ch; }
+.spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+.spot { border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; display: grid; gap: 4px; align-content: start; }
+.spot h3 { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.3; }
+.spot h3 a { text-decoration: none; }
+.spot h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.spot h3 span { font-weight: 400; color: var(--muted); font-size: 13px; margin-left: 4px; }
+.spot p { margin: 0; font-size: 14.5px; color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+@media (max-width: 600px) { .hero { aspect-ratio: 4 / 3; } .hero .t { left: 18px; right: 18px; bottom: 18px; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back" href="./#guides">← Ava Rikkers</a>
+  <header class="hero">
+    <img src="https://images.unsplash.com/photo-1492666673288-3c4b4576ad9a?auto=format&fit=crop&w=1800&q=75" alt="New York City">
+    <div class="t"><h1>New York City Guide</h1><p>Some of my favorite spots for food, coffee, shopping, and walks! · Last updated August 8, 2026</p></div>
+  </header>
+  <nav class="jump" aria-label="Sections"><a href="#breakfast--brunch">Breakfast &amp; Brunch</a><a href="#lunch--dinner">Lunch &amp; Dinner</a><a href="#rooftops--bars">Rooftops &amp; Bars</a><a href="#from-my-friends">From My Friends</a><a href="#dessert">Dessert</a><a href="#coffee">Coffee</a><a href="#walks--neighborhoods">Walks &amp; Neighborhoods</a><a href="#bonus-yoga-studios">Bonus: Yoga Studios</a></nav>
+  <section id="breakfast--brunch">
+    <h2>Breakfast &amp; Brunch</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Dimes+Deli+New+York+NY" target="_blank" rel="noopener">Dimes Deli</a></h3><p>I stumbled upon Dimes one morning in search of a cappuccino. I stayed for 30 minutes, chatting with the bartender and the other patrons. Strong positive energy, and real food.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Apollo+Bagels+New+York+NY" target="_blank" rel="noopener">Apollo Bagels</a></h3><p>Open-faced bagels. I recommend the lox or tomato. They will always, always have a line, because they are just that good.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Elbow+Bread+New+York+NY" target="_blank" rel="noopener">Elbow Bread</a></h3><p>Close to Dimes, this place does pastries and coffee the right way! Fluffy, flavorful, and inviting. Seating is limited; go on the weekend for their rotating specials.</p></div>
+    </div>
+  </section>
+  <section id="lunch--dinner">
+    <h2>Lunch &amp; Dinner</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Kiki+New+York+NY" target="_blank" rel="noopener">Kiki</a></h3><p>Some of the best Greek food I&#x27;ve had and surely the best octopus I&#x27;ve ever had. It&#x27;s loud if you sit inside.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+French+Diner+New+York+NY" target="_blank" rel="noopener">The French Diner</a></h3><p>No reservations, ~10 seats. Go early and put your name down. Three staff are working: the chef, the dishwasher, and a woman who does all else. Everything is divine.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Habana+New+York+NY" target="_blank" rel="noopener">Café Habana</a></h3><p>I had the best cubano sandwich I&#x27;ve ever had, and people rave about the street corn (I don&#x27;t like street corn). Great location for lunch.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Torrisi+New+York+NY" target="_blank" rel="noopener">Torrisi</a></h3><p>Relatively impossible to get a reservation, but you can go by yourself or try to walk in. Known as one of the top-rated Italian restaurants in NYC.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Los+Tacos+No.+1+New+York+NY" target="_blank" rel="noopener">Los Tacos No. 1</a></h3><p>Classic, cheap(ish), delicious. Get the pork tacos.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Cho+Dang+Gol+New+York+NY" target="_blank" rel="noopener">Cho Dang Gol</a></h3><p>Korean food, no reservations. Known to be some of the best Korean food in the city. Please get the Spicy Galbi Jjim, one of the best foods I have ever tried.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Chez+Fifi+New+York+NY" target="_blank" rel="noopener">Chez Fifi</a></h3><p>On the Upper East Side, Chez Fifi has beautiful service, a velvety atmosphere, and truly curated meals. Incredible steak tartare.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Golden+Diner+New+York+NY" target="_blank" rel="noopener">Golden Diner</a></h3><p>If you want to go for breakfast, it will be a two to three hour wait. So go for dinner! Who doesn&#x27;t want a honey butter pancake at 9pm?! (Best pancake in the world, not my words.)</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Quique+Crudo+New+York+NY" target="_blank" rel="noopener">Quique Crudo</a></h3><p>I haven&#x27;t been, but if you have the chance, go! This Mexican restaurant is highly rated, and almost everyone rates it a 10/10. (Please go and know I&#x27;ll be jealous.)</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=L%27Industrie+Pizzeria+New+York+NY" target="_blank" rel="noopener">L&#x27;Industrie Pizzeria</a></h3><p>The burrata is my favorite, but you truly cannot go wrong with any option. Be warned: a full pizza will be around $37 (ridiculous!).</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Gramercy+Tavern+New+York+NY" target="_blank" rel="noopener">Gramercy Tavern</a></h3><p>A beautiful place for lunch. A NYC staple, Gramercy&#x27;s dishes are complemented by fresh vegetables. I highly recommend it.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Wayan+New+York+NY" target="_blank" rel="noopener">Wayan</a></h3><p>I love French food and I love Asian fusion. The regular menu is great, but you cannot miss getting cheese on your chocolate chip cookie for dessert.</p></div>
+    </div>
+  </section>
+  <section id="rooftops--bars">
+    <h2>Rooftops &amp; Bars</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+Mandarin+Oriental+New+York+NY" target="_blank" rel="noopener">The Mandarin Oriental</a></h3><p>Arguably one of the most critically acclaimed bars in the city. Expensive (and maybe a bit stuffy), but the views of Central Park are unparalleled.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Saint+Tuesday+New+York+NY" target="_blank" rel="noopener">Saint Tuesday</a></h3><p>Maybe the opposite of the Mandarin Oriental, this bar is underground in an old ribbon production facility. Live jazz on Friday nights after ~10pm!</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Bar+Belly+New+York+NY" target="_blank" rel="noopener">Bar Belly</a></h3><p>One of the top cocktail bars in the city! Such a fun vibe on Orchard Street in the L.E.S.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Bar+Revival+New+York+NY" target="_blank" rel="noopener">Bar Revival</a></h3><p>Terracotta walls, great drinks, great energy.</p></div>
+    </div>
+  </section>
+  <section id="from-my-friends">
+    <h2>From My Friends</h2>
+    <p class="note">Candidly, I am not the biggest bar-goer, but my friends are, so here are their recommendations (with my descriptions).</p>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Mezzrow+New+York+NY" target="_blank" rel="noopener">Mezzrow</a></h3><p>In the West Village, Mezzrow is an intimate piano bar with great cocktails. A perfect spot for post-dinner drinks.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+Nines+New+York+NY" target="_blank" rel="noopener">The Nines</a></h3><p>Another piano bar, this time in NoHo. Red velvet and cheetah print decor. Maybe a bit performative, but well suited for a fancier pregame.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Chez+Zou+New+York+NY" target="_blank" rel="noopener">Chez Zou</a></h3><p>A (low, 4th floor) rooftop bar in Chelsea. I imagine it is more corporate, but still pretty views and nice drinks.</p></div>
+    </div>
+  </section>
+  <section id="dessert">
+    <h2>Dessert</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Mimi%27s+New+York+NY" target="_blank" rel="noopener">Mimi&#x27;s</a></h3><p>The BEST frozen yogurt (tart, coffee, mango and more), and even better toppings. Cookie dough, peaches, mochi, boba, chocolate, coconut, I can go on. The line will be 30 minutes.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Grace+Street+Coffee+%26+Desserts+New+York+NY" target="_blank" rel="noopener">Grace Street Coffee &amp; Desserts</a></h3><p>Korean desserts. Sweet, delish, everything you want.</p></div>
+    </div>
+  </section>
+  <section id="coffee">
+    <h2>Coffee</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Stone+St+Caf%C3%A9+New+York+NY" target="_blank" rel="noopener">Stone St Café</a></h3><p>I love this place because of the art and atmosphere! I kept coming back to sit and do work. Also a great location in SoHo.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Le+Gaz+New+York+NY" target="_blank" rel="noopener">Le Gaz</a></h3><p>Also on the L.E.S. This place is both a clothing store and a café. Known for their Vietnamese coffee and sweet cream cold foam. I liked it, but loved the name and interior even more.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Kinship+New+York+NY" target="_blank" rel="noopener">Kinship</a></h3><p>Close to the office! Great coffee (though expensive).</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Paradiso+New+York+NY" target="_blank" rel="noopener">Cafe Paradiso</a></h3><p>The most viral coffee in NYC to date.</p></div>
+    </div>
+  </section>
+  <section id="walks--neighborhoods">
+    <h2>Walks &amp; Neighborhoods</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=SoHo+%2F+5th+Ave+New+York+NY" target="_blank" rel="noopener">SoHo / 5th Ave</a></h3><p>5th Ave is the classic shopping street, ranging from designer to everyday brands. I recommend starting north, then walking 5th Ave down to SoHo if you want to shop.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Orchard+Street+New+York+NY" target="_blank" rel="noopener">Orchard Street</a></h3><p>The most classic L.E.S. strip. I walked this street almost every day. Vintage shops and wine bars line the street, and it&#x27;s closed to cars Thursday to Sunday nights.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=West+Side+Highway+New+York+NY" target="_blank" rel="noopener">West Side Highway</a></h3><p>A common walking and biking path along the Hudson River. Walk far enough south and you&#x27;ll see the Statue of Liberty (amongst the haze).</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+High+Line+New+York+NY" target="_blank" rel="noopener">The High Line</a></h3><p>In all honesty, I never did this walk. However, it&#x27;s known for its great art installations, and it&#x27;s built on a former rail line winding through the west side of the city.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Seaport+New+York+NY" target="_blank" rel="noopener">Seaport</a></h3><p>Close to our office, with a cute boardwalk! It feels clean and fresh, though a bit like a movie set.</p></div>
+    </div>
+  </section>
+  <section id="bonus-yoga-studios">
+    <h2>Bonus: Yoga Studios</h2>
+    <p class="note">Fun fact about me: I love yoga! Here are my favorite studios I tried while in NYC.</p>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Broome+St+Yoga+New+York+NY" target="_blank" rel="noopener">Broome St Yoga</a></h3><p>The practice and studio draw from Eastern influences. Opening and inviting.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Yoga+Spa+NYC+Midtown+New+York+NY" target="_blank" rel="noopener">Yoga Spa NYC Midtown</a></h3><p>Knowledgeable, calming instructors. Will push you in a good way.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Bhakti+Center+New+York+NY" target="_blank" rel="noopener">Bhakti Center</a></h3><p>Unmatched energy. Truly down-to-earth, in-touch people.</p></div>
+    </div>
+  </section>
+  <footer><span>By Ava Rikkers · <a href="./">avarikkers.com</a></span><span>Tap a spot to open it in Google Maps · Cover photo from <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></span></footer>
+</div>
+</body>
+</html>
