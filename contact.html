@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact — Ava Rikkers</title>
+<meta name="description" content="Get in touch with Ava Rikkers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+/* Layout: one centered reading column, like a well-set résumé. Rows share one grid (date | content) separated by hairlines; sage is the only accent */
+:root {
+  --bg: #FBFAF7;
+  --ink: #1B1F1A;
+  --muted: #646B61;
+  --line: #E2E4DC;
+  --sage: #2F3A2B;
+  --sage-mid: #5E7257;
+  --sage-tint: #ECEFE6;
+  --mint: #7CC7BF;
+  --f-display: "Cormorant", Garamond, "Times New Roman", serif;
+  --f-body: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131612; --ink: #ECEEE8; --muted: #A2A99D; --line: #2A2F28;
+    --sage: #CFDCC6; --sage-mid: #A9BEA0; --sage-tint: #1C211A; --mint: #7CC7BF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131612; --ink: #ECEEE8; --muted: #A2A99D; --line: #2A2F28;
+  --sage: #CFDCC6; --sage-mid: #A9BEA0; --sage-tint: #1C211A; --mint: #7CC7BF;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; }
+.wrap {
+  max-width: 880px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; text-decoration-color: var(--sage-mid); text-underline-offset: 3px; }
+a:hover { color: var(--sage-mid); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sage-mid); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+/* Header & footer */
+.site-head { border-bottom: 1px solid var(--line); }
+.site-head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 22px; }
+.mark { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: 27px; line-height: 1; text-decoration: none; }
+.mark:hover { color: inherit; }
+.mark span { color: var(--sage-mid); }
+.site-head nav { display: flex; gap: 26px; font-size: 15px; }
+.site-head nav a { text-decoration: none; color: var(--muted); padding-block: 4px; border-bottom: 1.5px solid transparent; }
+.site-head nav a:hover { color: var(--ink); }
+.site-head nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--sage-mid); }
+.site-foot { border-top: 1px solid var(--line); margin-top: 96px; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 24px; padding-block: 28px 44px; font-size: 14px; color: var(--muted); }
+.site-foot .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.site-foot a { text-decoration: none; }
+.site-foot a:hover { text-decoration: underline; }
+
+/* Section scaffolding */
+main .wrap { display: grid; gap: 88px; padding-block: 56px 0; }
+.label { font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-mid); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+.sec-head h2 { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(32px, 4.4vw, 42px); line-height: 1.05; }
+.sec-head .aside { font-size: 14px; color: var(--muted); }
+
+/* Intro */
+.intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+.intro .text { display: grid; gap: 18px; }
+.intro h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(50px, 8vw, 84px); line-height: .95; letter-spacing: -.01em; }
+.intro h1 em { color: var(--sage-mid); }
+.intro .lead { font-size: 18.5px; max-width: 40ch; }
+.now { display: grid; gap: 6px; padding: 14px 0 0; border-top: 1px solid var(--line); font-size: 15px; }
+.now div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; }
+.now dt, .now .k { color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; font: 500 15px/1 var(--f-body); text-decoration: none; cursor: pointer;
+  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink);
+}
+.btn:hover { border-color: var(--sage-mid); color: var(--ink); }
+.btn.solid { background: var(--sage); border-color: var(--sage); color: var(--bg); }
+.btn.solid:hover { background: var(--sage-mid); border-color: var(--sage-mid); color: var(--bg); }
+.photo { position: relative; margin: 0; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; background: linear-gradient(180deg, #8C8FB0, #D99A7A 60%, #8E8A80); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo figcaption { position: absolute; left: 12px; bottom: 12px; font-size: 12px; font-weight: 500; color: #1B1F1A; background: rgba(251,250,247,.86); padding: 5px 10px; border-radius: 999px; }
+
+/* Rows: the one repeated unit */
+.rows { border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 28px; padding-block: 24px; border-bottom: 1px solid var(--line); }
+.row .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.row h3 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+.row .where { font-size: 14.5px; color: var(--sage-mid); margin-top: 2px; }
+.row p.d { margin-top: 8px; max-width: 62ch; }
+.row .more { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 8px; font-size: 14px; font-weight: 500; }
+
+/* Places line */
+.places { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.places span { font-size: 13px; letter-spacing: .06em; padding: 6px 12px; border: 1px dashed var(--sage-mid); border-radius: 6px; color: var(--sage-mid); }
+
+/* Skills */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.pills span { font-size: 14.5px; padding: 8px 15px; border-radius: 999px; background: var(--sage-tint); }
+
+/* Work page */
+.page-title { display: grid; gap: 10px; }
+.page-title h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(50px, 8vw, 80px); line-height: 1; }
+.page-title h1 em { color: var(--sage-mid); }
+.page-title p { color: var(--muted); max-width: 54ch; font-size: 17.5px; }
+.feature { background: var(--sage-tint); border-radius: 22px; padding: 30px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px 30px; align-items: center; }
+.feature .logo { width: 116px; height: 116px; display: block; }
+.feature .copy { display: grid; gap: 10px; }
+.feature h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(32px, 4.4vw, 42px); line-height: 1; }
+.feature p.d { max-width: 58ch; }
+.feature a { font-weight: 500; font-size: 15px; }
+.offclock { font-family: var(--f-display); font-style: italic; font-size: clamp(22px, 3vw, 28px); line-height: 1.45; margin-top: 8px; max-width: 34ch; }
+.offclock span { color: var(--sage-mid); font-style: normal; padding-inline: 4px; }
+
+/* Contact page */
+.hello { display: grid; gap: 20px; padding-top: 24px; }
+.hello h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(56px, 10vw, 104px); line-height: .95; }
+.hello h1 em { color: var(--sage-mid); }
+.hello .lead { font-size: 19px; color: var(--muted); max-width: 44ch; }
+.email { font-size: clamp(26px, 5.4vw, 50px); font-weight: 700; letter-spacing: -.01em; text-decoration: none; overflow-wrap: anywhere; border-bottom: 2px solid var(--mint); justify-self: start; line-height: 1.2; }
+.email:hover { color: var(--sage-mid); }
+
+@media (max-width: 720px) {
+  main .wrap { gap: 64px; padding-block: 36px 0; }
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .photo { aspect-ratio: 16 / 10; order: -1; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 20px; }
+  .feature { grid-template-columns: minmax(0, 1fr); padding: 22px; }
+  .feature .logo { width: 80px; height: 80px; }
+  .site-head nav { gap: 18px; }
+  .sec-head { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="./">Ava Rikkers<span>.</span></a>
+    <nav aria-label="Site"><a href="./">Home</a><a href="work.html">Work</a><a href="contact.html" aria-current="page">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hello">
+      <p class="label">Contact</p>
+      <h1>Let's <em>talk.</em></h1>
+      <p class="lead">Open to new roles and interesting projects. The fastest way to reach me is email.</p>
+      <a class="email" id="addr" href="mailto:avarikkers@gmail.com">avarikkers@gmail.com</a>
+      <div class="cta">
+        <button class="btn solid" id="copyBtn" type="button">Copy email</button>
+        <a class="btn" href="https://www.kulterracollective.com/" target="_blank" rel="noopener">Kulterra Collective ↗</a>
+        <a class="btn" href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">Sage Circle ↗</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Ava Rikkers · Boston, MA</span>
+    <div class="links">
+      <a href="mailto:avarikkers@gmail.com">Email</a>
+      <a href="https://www.kulterracollective.com/" target="_blank" rel="noopener">Kulterra Collective</a>
+      <a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Substack</a>
+      <a href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">Sage Circle</a>
+      <a href="https://www.pinterest.com/avarikkers/" target="_blank" rel="noopener">Ava's Lens</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  const btn = document.getElementById('copyBtn');
+  const addr = document.getElementById('addr');
+  if (!btn || !addr) return;
+  btn.addEventListener('click', () => {
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy email', 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(addr); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Press ⌘C to copy'; };
+    try { navigator.clipboard.writeText(addr.textContent).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>

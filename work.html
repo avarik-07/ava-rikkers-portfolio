@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projects &amp; Leadership — Ava Rikkers</title>
+<meta name="description" content="Projects and leadership by Ava Rikkers: Sage Circle, research, Kulterra Collective, writing and service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+/* Layout: one centered reading column, like a well-set résumé. Rows share one grid (date | content) separated by hairlines; sage is the only accent */
+:root {
+  --bg: #FBFAF7;
+  --ink: #1B1F1A;
+  --muted: #646B61;
+  --line: #E2E4DC;
+  --sage: #2F3A2B;
+  --sage-mid: #5E7257;
+  --sage-tint: #ECEFE6;
+  --mint: #7CC7BF;
+  --f-display: "Cormorant", Garamond, "Times New Roman", serif;
+  --f-body: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131612; --ink: #ECEEE8; --muted: #A2A99D; --line: #2A2F28;
+    --sage: #CFDCC6; --sage-mid: #A9BEA0; --sage-tint: #1C211A; --mint: #7CC7BF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131612; --ink: #ECEEE8; --muted: #A2A99D; --line: #2A2F28;
+  --sage: #CFDCC6; --sage-mid: #A9BEA0; --sage-tint: #1C211A; --mint: #7CC7BF;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; }
+.wrap {
+  max-width: 880px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; text-decoration-color: var(--sage-mid); text-underline-offset: 3px; }
+a:hover { color: var(--sage-mid); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sage-mid); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+/* Header & footer */
+.site-head { border-bottom: 1px solid var(--line); }
+.site-head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 22px; }
+.mark { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: 27px; line-height: 1; text-decoration: none; }
+.mark:hover { color: inherit; }
+.mark span { color: var(--sage-mid); }
+.site-head nav { display: flex; gap: 26px; font-size: 15px; }
+.site-head nav a { text-decoration: none; color: var(--muted); padding-block: 4px; border-bottom: 1.5px solid transparent; }
+.site-head nav a:hover { color: var(--ink); }
+.site-head nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--sage-mid); }
+.site-foot { border-top: 1px solid var(--line); margin-top: 96px; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 24px; padding-block: 28px 44px; font-size: 14px; color: var(--muted); }
+.site-foot .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.site-foot a { text-decoration: none; }
+.site-foot a:hover { text-decoration: underline; }
+
+/* Section scaffolding */
+main .wrap { display: grid; gap: 88px; padding-block: 56px 0; }
+.label { font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-mid); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+.sec-head h2 { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(32px, 4.4vw, 42px); line-height: 1.05; }
+.sec-head .aside { font-size: 14px; color: var(--muted); }
+
+/* Intro */
+.intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+.intro .text { display: grid; gap: 18px; }
+.intro h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(50px, 8vw, 84px); line-height: .95; letter-spacing: -.01em; }
+.intro h1 em { color: var(--sage-mid); }
+.intro .lead { font-size: 18.5px; max-width: 40ch; }
+.now { display: grid; gap: 6px; padding: 14px 0 0; border-top: 1px solid var(--line); font-size: 15px; }
+.now div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; }
+.now dt, .now .k { color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; font: 500 15px/1 var(--f-body); text-decoration: none; cursor: pointer;
+  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink);
+}
+.btn:hover { border-color: var(--sage-mid); color: var(--ink); }
+.btn.solid { background: var(--sage); border-color: var(--sage); color: var(--bg); }
+.btn.solid:hover { background: var(--sage-mid); border-color: var(--sage-mid); color: var(--bg); }
+.photo { position: relative; margin: 0; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; background: linear-gradient(180deg, #8C8FB0, #D99A7A 60%, #8E8A80); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo figcaption { position: absolute; left: 12px; bottom: 12px; font-size: 12px; font-weight: 500; color: #1B1F1A; background: rgba(251,250,247,.86); padding: 5px 10px; border-radius: 999px; }
+
+/* Rows: the one repeated unit */
+.rows { border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 28px; padding-block: 24px; border-bottom: 1px solid var(--line); }
+.row .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.row h3 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+.row .where { font-size: 14.5px; color: var(--sage-mid); margin-top: 2px; }
+.row p.d { margin-top: 8px; max-width: 62ch; }
+.row .more { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 8px; font-size: 14px; font-weight: 500; }
+
+/* Places line */
+.places { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.places span { font-size: 13px; letter-spacing: .06em; padding: 6px 12px; border: 1px dashed var(--sage-mid); border-radius: 6px; color: var(--sage-mid); }
+
+/* Skills */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.pills span { font-size: 14.5px; padding: 8px 15px; border-radius: 999px; background: var(--sage-tint); }
+
+/* Work page */
+.page-title { display: grid; gap: 10px; }
+.page-title h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(50px, 8vw, 80px); line-height: 1; }
+.page-title h1 em { color: var(--sage-mid); }
+.page-title p { color: var(--muted); max-width: 54ch; font-size: 17.5px; }
+.feature { background: var(--sage-tint); border-radius: 22px; padding: 30px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px 30px; align-items: center; }
+.feature .logo { width: 116px; height: 116px; display: block; }
+.feature .copy { display: grid; gap: 10px; }
+.feature h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(32px, 4.4vw, 42px); line-height: 1; }
+.feature p.d { max-width: 58ch; }
+.feature a { font-weight: 500; font-size: 15px; }
+.offclock { font-family: var(--f-display); font-style: italic; font-size: clamp(22px, 3vw, 28px); line-height: 1.45; margin-top: 8px; max-width: 34ch; }
+.offclock span { color: var(--sage-mid); font-style: normal; padding-inline: 4px; }
+
+/* Contact page */
+.hello { display: grid; gap: 20px; padding-top: 24px; }
+.hello h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(56px, 10vw, 104px); line-height: .95; }
+.hello h1 em { color: var(--sage-mid); }
+.hello .lead { font-size: 19px; color: var(--muted); max-width: 44ch; }
+.email { font-size: clamp(26px, 5.4vw, 50px); font-weight: 700; letter-spacing: -.01em; text-decoration: none; overflow-wrap: anywhere; border-bottom: 2px solid var(--mint); justify-self: start; line-height: 1.2; }
+.email:hover { color: var(--sage-mid); }
+
+@media (max-width: 720px) {
+  main .wrap { gap: 64px; padding-block: 36px 0; }
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .photo { aspect-ratio: 16 / 10; order: -1; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 20px; }
+  .feature { grid-template-columns: minmax(0, 1fr); padding: 22px; }
+  .feature .logo { width: 80px; height: 80px; }
+  .site-head nav { gap: 18px; }
+  .sec-head { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="./">Ava Rikkers<span>.</span></a>
+    <nav aria-label="Site"><a href="./">Home</a><a href="work.html" aria-current="page">Work</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <header class="page-title">
+      <p class="label">Projects &amp; Leadership</p>
+      <h1>Things I've <em>built.</em></h1>
+    </header>
+
+    <section class="feature" aria-label="Sage Circle">
+      <svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#2F3A2B"/><text x="60" y="82" text-anchor="middle" font-family="'Bodoni 72', Didot, 'Bodoni MT', 'Times New Roman', serif" font-size="70" fill="#F6F3EC">S</text><path d="M42 94 H78" stroke="#7CC7BF" stroke-width="2.5"/></svg>
+      <div class="copy">
+        <p class="label">Founder · Building now</p>
+        <h2>Sage Circle</h2>
+        <p class="d">An invite-only marketplace for secondhand designer clothing. Snap a few photos and the app identifies the piece, estimates what it's worth and gives it an environmental score — then sell it or donate it to charity.</p>
+        <a href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">@sagebyrefyndly on Instagram ↗</a>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sec-head"><h2>Projects</h2><span class="aside">Research, ventures &amp; leadership</span></div>
+      <div class="rows">
+    <div class="row">
+      <span class="when">2026</span>
+      <div>
+      <h3>AI, Nutrition &amp; Global Health</h3>
+      <p class="where">Research · Barabási Lab</p>
+      <p class="d">Second author on a 13-page <em>Nature Health</em> perspective (under review). Mapped 1,170 data points across 195 countries in an interactive map showing where regulation lags AI adoption.</p>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2026</span>
+      <div>
+      <h3>Global Nutrition Data Map</h3>
+      <p class="where">Built with Claude Code</p>
+      <p class="d">An interactive world map scoring how much nutrition data each country has, from diet surveys to grocery scanner data, with 709 linked sources.</p>
+      <div class="more"><a href="nutrition-map.html">Explore the map →</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2026</span>
+      <div>
+      <h3>Kulterra Collective</h3>
+      <p class="where">Co-Founder &amp; President</p>
+      <p class="d">Connected 120 high schoolers from Madison, Wisconsin to Cairo, Egypt through pen pal letters, now a writing collective publishing stories on culture and place.</p>
+      <div class="more"><a href="https://www.instagram.com/kulterracollective/" target="_blank" rel="noopener">@kulterracollective ↗</a><a href="https://www.kulterracollective.com/" target="_blank" rel="noopener">kulterracollective.com ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2026</span>
+      <div>
+      <h3>Northeastern Supply Chain Management Club</h3>
+      <p class="where">President</p>
+      <p class="d">Leading a 15-person board and 100+ members through a club rebrand and 40+ industry speakers, within a $5K budget.</p>
+      <div class="more"><a href="https://nuscm.com/" target="_blank" rel="noopener">nuscm.com ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2026</span>
+      <div>
+      <h3>Toast AI Search Visibility Study</h3>
+      <p class="where">Brand Strategy</p>
+      <p class="d">Tested how 5 LLMs portray Toast's employer brand across ~80 sources, leading to a company-wide generative engine optimization strategy.</p>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <div class="sec-head"><h2>Writing &amp; guides</h2><span class="aside"><a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Subscribe on Substack ↗</a></span></div>
+      <div class="rows">
+    <div class="row">
+      <span class="when">Oct 2026</span>
+      <div>
+      <h3>Notes on Passivity</h3>
+      <p class="where">Essay · Kulterra Collective</p>
+      <p class="d">A reminder to not let your default actions replace your intentions.</p>
+      <div class="more"><a href="https://www.kulterracollective.com/journal/ouwbr9n9997bge5oinxupqqhnrq5jv" target="_blank" rel="noopener">Read ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Aug 2026</span>
+      <div>
+      <h3>Told to Forget</h3>
+      <p class="where">Essay · Kulterra Collective</p>
+      <div class="more"><a href="https://www.kulterracollective.com/journal/k71gleyb4nrotycroyf3yx61x9qs48" target="_blank" rel="noopener">Read ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Jun 2026</span>
+      <div>
+      <h3>Timeless, or naught</h3>
+      <p class="where">Essay · Kulterra Collective</p>
+      <p class="d">“Isn't the most beautiful thing about a moment: realizing you are in it?”</p>
+      <div class="more"><a href="https://www.kulterracollective.com/journal/timeless-or-naught" target="_blank" rel="noopener">Read ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Mar 2026</span>
+      <div>
+      <h3>The Drina</h3>
+      <p class="where">Essay · Kulterra Collective</p>
+      <p class="d">“A narrative told is an imposition of perspective.”</p>
+      <div class="more"><a href="https://www.kulterracollective.com/journal/the-drina" target="_blank" rel="noopener">Read ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Ongoing</span>
+      <div>
+      <h3>City Guides</h3>
+      <p class="where">Boston · New York City</p>
+      <p class="d">My favorite spots for food, coffee, shopping and walks, written for friends. Every spot opens in Google Maps.</p>
+      <div class="more"><a href="boston-guide.html">Boston guide →</a><a href="nyc-guide.html">New York guide →</a></div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="sec-head"><h2>Service</h2><span class="aside">Boston · Rio · Rome · Madison</span></div>
+      <div class="rows">
+    <div class="row">
+      <span class="when">Spring 2026</span>
+      <div>
+      <h3>Centro Para Ti</h3>
+      <p class="where">Rio de Janeiro, Brazil</p>
+      <p class="d">Ran volunteer workshops over Spring Break (20+ hours).</p>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Boston</span>
+      <div>
+      <h3>Boston Cares · Rosie's Place · Volunteer Ventures MA</h3>
+      <p class="where">Boston, MA</p>
+      <p class="d">Hands-on service across Boston organizations, plus Relay for Life and community events with the Boston Celtics and Boston Bruins.</p>
+      <div class="more"><a href="https://www.bostoncares.org/" target="_blank" rel="noopener">Boston Cares ↗</a><a href="https://www.rosiesplace.org/" target="_blank" rel="noopener">Rosie's Place ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Fall 2023</span>
+      <div>
+      <h3>John Cabot University Community Service</h3>
+      <p class="where">Rome, Italy</p>
+      <p class="d">15+ hours of volunteering while studying abroad. JCU Community Service Certificate.</p>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2020 — 2023</span>
+      <div>
+      <h3>Second Harvest / River Food Pantry · Clean Lakes Alliance</h3>
+      <p class="where">Madison, WI</p>
+      <p class="d">Cooked meals for families in need, and helped clean Madison's lakes.</p>
+      <div class="more"><a href="https://www.secondharvestmadison.org/" target="_blank" rel="noopener">Second Harvest ↗</a><a href="https://www.cleanlakesalliance.org/" target="_blank" rel="noopener">Clean Lakes Alliance ↗</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Now</span>
+      <div>
+      <h3>Mentoring</h3>
+      <p class="where">Northeastern</p>
+      <p class="d">I mentor students through the Supply Chain Management Club, WISE and the International Business Student Ambassador Program.</p>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section id="off-the-clock">
+      <div class="sec-head"><h2>Off the clock</h2></div>
+      <p class="offclock">Slalom skiing<span aria-hidden="true">·</span>Piano<span aria-hidden="true">·</span>Sewing<span aria-hidden="true">·</span>Nutrition<span aria-hidden="true">·</span>Volunteering<span aria-hidden="true">·</span>Par-3 golf<span aria-hidden="true">·</span>Meditation<span aria-hidden="true">·</span>Farmers markets<span aria-hidden="true">·</span>Euchre</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Ava Rikkers · Boston, MA</span>
+    <div class="links">
+      <a href="mailto:avarikkers@gmail.com">Email</a>
+      <a href="https://www.kulterracollective.com/" target="_blank" rel="noopener">Kulterra Collective</a>
+      <a href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Substack</a>
+      <a href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener">Sage Circle</a>
+      <a href="https://www.pinterest.com/avarikkers/" target="_blank" rel="noopener">Ava's Lens</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
