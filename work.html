@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@400;500&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
+
 <style>
 /* A clean white page: serif for reading and italics, a grotesk in small caps for navigation and titles. Rounded image cards, one green dot of color */
 :root {
@@ -19,15 +20,17 @@
   --line: #DADADA;
   --tile: #F2F2F0;
   --dot: #3DCB4B;
+  --landc: #D9D8D2;
+  --livedc: #9FBF8F;
   --serif: "EB Garamond", "Garamond", "Times New Roman", serif;
   --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --r: 12px;
   --pad: max(16px, env(safe-area-inset-left, 0px));
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg: #101010; --ink: #EDEDED; --soft: #9C9C9C; --faint: #666; --line: #2B2B2B; --tile: #1B1B1B; color-scheme: dark; }
+  :root:not([data-theme="light"]) { --bg: #101010; --ink: #EDEDED; --soft: #9C9C9C; --faint: #666; --line: #2B2B2B; --tile: #1B1B1B; --landc: #3A3A38; --livedc: #5F8A50; color-scheme: dark; }
 }
-:root[data-theme="dark"] { --bg: #101010; --ink: #EDEDED; --soft: #9C9C9C; --faint: #666; --line: #2B2B2B; --tile: #1B1B1B; color-scheme: dark; }
+:root[data-theme="dark"] { --bg: #101010; --ink: #EDEDED; --soft: #9C9C9C; --faint: #666; --line: #2B2B2B; --tile: #1B1B1B; --landc: #3A3A38; --livedc: #5F8A50; color-scheme: dark; }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
@@ -119,6 +122,45 @@ a.row:hover::after { transform: scaleX(1); }
 .reach { display: grid; gap: 18px; justify-items: start; }
 .reach .more { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 
+.lang { display: flex; flex-wrap: wrap; gap: 12px 48px; }
+.lang div { display: grid; gap: 2px; }
+.lang b { font-family: var(--sans); font-weight: 500; font-size: 19px; }
+.lang span { font-style: italic; color: var(--soft); }
+.interests { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 20px; padding: 0; list-style: none; }
+.interests li { border: 1.5px solid var(--ink); border-radius: 999px; padding: 7px 15px; font-family: var(--sans); font-size: 15px; }
+
+/* Abroad: a globe that spins on its own and can be dragged */
+.abroad { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: start; padding-bottom: 40px; }
+.globe { position: sticky; top: 76px; aspect-ratio: 1; max-width: 640px; width: 100%; margin: 0 auto; cursor: grab; touch-action: none; }
+.globe:active { cursor: grabbing; }
+.globe svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.globe .sea { fill: var(--tile); }
+.globe .halo { fill: none; stroke: var(--line); }
+.globe .grat { fill: none; stroke: var(--line); stroke-width: .6; }
+.globe .land { fill: var(--landc); stroke: var(--bg); stroke-width: .5; }
+.globe .land.lived { fill: var(--livedc); }
+.globe .mark .core { fill: var(--dot); stroke: var(--ink); stroke-width: 1.5; }
+.globe .mark .ring { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.globe .mark .pulse { fill: none; stroke: var(--dot); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+.globe .mark text { font-family: var(--sans); font-size: 13px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--tile); stroke-width: 4px; stroke-linejoin: round; }
+.globe .mark.on .ring { stroke-width: 2.5; }
+.globe .mark.on text { font-size: 16px; }
+@keyframes pulse { from { transform: scale(1); opacity: .9; } to { transform: scale(3.4); opacity: 0; } }
+.places h2 { margin: 0 0 6px; }
+.places .group { margin-bottom: 30px; }
+.place { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 14px; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line);
+  padding: 14px 0; color: var(--ink); font: inherit; cursor: pointer; }
+.place::before { content: ""; grid-row: 1 / 3; align-self: center; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--bg); transition: background .25s, transform .25s; }
+.place:hover::before, .place.on::before { background: var(--dot); transform: scale(1.2); }
+.place b { font-family: var(--sans); font-weight: 500; font-size: 18px; }
+.place span { color: var(--soft); }
+.next-box { margin-top: 10px; background: var(--tile); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; }
+.next-box h2 { margin: 0; font-weight: 400; font-style: italic; font-size: 26px; }
+.next-box label { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--soft); display: grid; gap: 6px; }
+.next-box input { font: inherit; font-size: 18px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.next-box input:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
+.next-box .hint { margin: 0; font-size: 14px; color: var(--soft); }
+
 /* Education and skills */
 .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border-top: 1px solid var(--line); padding-top: 22px; }
 .facts h3 { margin: 6px 0 4px; font-family: var(--sans); font-size: 17px; font-weight: 500; }
@@ -127,6 +169,7 @@ a.row:hover::after { transform: scaleX(1); }
 
 /* Off the clock: photo cards with words over them */
 .trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.trio.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .trio figure { margin: 0; position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 3; background: var(--tile); }
 .trio img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2, .7, .2, 1); }
 .trio figure:hover img { transform: scale(1.05); }
@@ -151,7 +194,7 @@ a.row:hover::after { transform: scaleX(1); }
 .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 22px; }
 .foot-row .links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 8px; }
 .foot-row .right { text-align: right; }
-.pit { position: relative; height: 300px; margin-top: 20px; overflow: hidden; touch-action: pan-y; }
+.pit { position: relative; height: 400px; margin-top: 20px; overflow: hidden; touch-action: pan-y; }
 .pill { position: absolute; left: 0; top: 0; transform: translateY(-200px); white-space: nowrap; border: 1.5px solid var(--ink); border-radius: 999px; padding: 10px 18px; font-family: var(--sans); font-size: 16px;
   background: var(--bg); user-select: none; -webkit-user-select: none; cursor: grab; will-change: transform; }
 .pit.static { height: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 20px; }
@@ -205,7 +248,7 @@ a.row:hover::after { transform: scaleX(1); }
 @keyframes line-up { from { transform: translateY(110%); } to { transform: none; } }
 
 @media (max-width: 860px) {
-  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards, .trio.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
   .res { grid-template-columns: minmax(0, 1fr); }
@@ -217,13 +260,14 @@ a.row:hover::after { transform: scaleX(1); }
   .essays { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .facts { grid-template-columns: minmax(0, 1fr); }
   .facts > div { grid-column: auto !important; }
-  .page-head, .case-top, .case-body { grid-template-columns: minmax(0, 1fr); }
+  .page-head, .case-top, .case-body, .abroad { grid-template-columns: minmax(0, 1fr); }
+  .globe { position: relative; top: 0; }
 }
 @media (max-width: 640px) {
   .top .wrap { grid-template-columns: 1fr auto; }
   .clock { display: none; }
   .nav { gap: 18px; }
-  .cards, .trio { grid-template-columns: minmax(0, 1fr); }
+  .cards, .trio, .trio.four { grid-template-columns: minmax(0, 1fr); }
   .essays { grid-template-columns: minmax(0, 1fr); }
   .foot-row .right { text-align: left; }
   .foot-row .right .links { justify-content: flex-start !important; }
@@ -231,6 +275,7 @@ a.row:hover::after { transform: scaleX(1); }
   .hello .cta { justify-content: flex-start; }
   .with { columns: 1; }
   .pill { font-size: 14px; padding: 8px 14px; }
+  .pit { height: 560px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -241,17 +286,29 @@ a.row:hover::after { transform: scaleX(1); }
 <body>
 <header class="top"><div class="wrap">
   <a class="name" href="./">Ava Rikkers</a>
-  <nav class="nav" aria-label="Site"><a class="roll caps" href="work.html" aria-current="page"><span>Work</span><span aria-hidden="true">Work</span></a><a class="roll caps" href="journal.html"><span>Writing</span><span aria-hidden="true">Writing</span></a><a class="roll caps" href="about.html"><span>Info</span><span aria-hidden="true">Info</span></a></nav>
+  <nav class="nav" aria-label="Site"><a class="roll caps" href="./"><span>Info</span><span aria-hidden="true">Info</span></a><a class="roll caps" href="work.html" aria-current="page"><span>Work</span><span aria-hidden="true">Work</span></a><a class="roll caps" href="abroad.html"><span>Abroad</span><span aria-hidden="true">Abroad</span></a><a class="roll caps" href="journal.html"><span>Writing</span><span aria-hidden="true">Writing</span></a></nav>
   <p class="clock caps" style="margin:0" title="Boston time"><b style="font-weight:500">&nbsp;</b></p>
 </div></header>
 <main class="wrap">
   <header class="page-head">
     <h1 class="rise in">What I've done.</h1>
-    <div class="side-copy rise in"><p>Research, brand, consulting, travel and procurement, plus a venture, a writing collective and two city guides.</p></div>
+    <div class="side-copy rise in"><p>Research, two co-ops, two internships and the projects I've started.</p></div>
   </header>
-  <section class="sec">
-    <div class="sec-head"><h2 class="label">All Work</h2><div class="filters" role="group" aria-label="Filter projects"><button class="dot caps on" type="button" data-filter="All" aria-pressed="true">All</button><button class="dot caps" type="button" data-filter="Experience" aria-pressed="false">Experience</button><button class="dot caps" type="button" data-filter="Side projects" aria-pressed="false">Side projects</button><button class="dot caps" type="button" data-filter="Research" aria-pressed="false">Research</button><button class="dot caps" type="button" data-filter="Brand" aria-pressed="false">Brand</button><button class="dot caps" type="button" data-filter="Writing" aria-pressed="false">Writing</button></div></div>
-    <div class="cards"><a class="card rise" style="--d:0.0s" href="case-ai-nutrition.html" data-tags="Experience,Research"><div class="pic"><img src="img/research-illustration.jpg" alt="" loading="lazy"></div><span class="t">Barabási Lab</span><span class="s">Research on AI, nutrition &amp; global health</span></a><a class="card rise" style="--d:0.07s" href="case-toast-ai-search.html" data-tags="Experience,Brand"><div class="pic"><img src="img/one-team.jpg" alt="" loading="lazy"></div><span class="t">Toast</span><span class="s">International brand management &amp; an AI visibility study</span></a><a class="card rise" style="--d:0.14s" href="case-sage-circle.html" data-tags="Side projects,Venture"><div class="pic"><img src="img/clothing-rack.jpg" alt="" loading="lazy"><svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#2F3A2B"/><text x="60" y="82" text-anchor="middle" font-family="'Bodoni 72', Didot, 'Bodoni MT', 'Times New Roman', serif" font-size="70" fill="#F6F3EC">S</text><path d="M42 94 H78" stroke="#7CC7BF" stroke-width="2.5"/></svg></div><span class="t">Sage Circle</span><span class="s">My venture for secondhand designer clothing</span></a><a class="card rise" style="--d:0.21000000000000002s" href="https://priorworld.com/" target="_blank" rel="noopener" data-tags="Experience"><div class="pic word" style="background:#141414;color:#F3EFE6"><span>PRIOR</span></div><span class="t">PRIOR World</span><span class="s">Luxury travel design &amp; operations in New York</span></a><a class="card rise" style="--d:0.0s" href="https://www.bcg.com/" target="_blank" rel="noopener" data-tags="Experience"><div class="pic word" style="background:#1C6B4A;color:#FFFFFF"><span>BCG</span></div><span class="t">Boston Consulting Group</span><span class="s">Knowledge analytics &amp; GenAI</span></a><a class="card rise" style="--d:0.07s" href="case-kulterra.html" data-tags="Side projects,Writing"><div class="pic"><img src="https://images.unsplash.com/photo-1559057287-ce0f595679a8?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy"></div><span class="t">Kulterra Collective</span><span class="s">A pen pal program turned writing collective</span></a><a class="card rise" style="--d:0.14s" href="case-city-guides.html" data-tags="Side projects,Writing"><div class="pic"><img src="img/seaport-nyc.jpg" alt="" loading="lazy"></div><span class="t">City Guides</span><span class="s">Where I'd send a friend in Boston &amp; New York</span></a><a class="card rise" style="--d:0.21000000000000002s" href="https://www.biofermenergy.com/" target="_blank" rel="noopener" data-tags="Experience"><div class="pic word" style="background:#E6DFCC;color:#2D3B22"><span>Bioferm</span></div><span class="t">Bioferm</span><span class="s">Procurement &amp; marketing in Madison</span></a></div>
+  <section class="sec" aria-labelledby="g-research">
+    <div class="sec-head"><h2 class="label" id="g-research" style="font-size:22px;color:var(--ink)">Research</h2><p style="margin:0;color:var(--soft)">AI, nutrition &amp; global health at the Barabási Lab.</p></div>
+    <div class="cards"><a class="card rise" style="--d:0.0s" href="case-ai-nutrition.html" data-tags="Research"><div class="pic"><img src="img/research-illustration.jpg" alt="" loading="lazy"></div><span class="t">Barabási Lab</span><span class="s">Research on AI, nutrition &amp; global health</span></a></div>
+  </section>
+  <section class="sec" aria-labelledby="g-co-op">
+    <div class="sec-head"><h2 class="label" id="g-co-op" style="font-size:22px;color:var(--ink)">Co-op</h2><p style="margin:0;color:var(--soft)">Six-month roles in brand and analytics.</p></div>
+    <div class="cards"><a class="card rise" style="--d:0.07s" href="case-toast-ai-search.html" data-tags="Co-op"><div class="pic"><img src="img/toast-team.jpg" alt="" loading="lazy"></div><span class="t">Toast</span><span class="s">International brand management &amp; an AI visibility study</span></a><a class="card rise" style="--d:0.14s" href="https://www.bcg.com/" target="_blank" rel="noopener" data-tags="Co-op"><div class="pic word" style="background:#1C6B4A;color:#FFFFFF"><span>BCG</span></div><span class="t">Boston Consulting Group</span><span class="s">Knowledge analytics &amp; GenAI</span></a></div>
+  </section>
+  <section class="sec" aria-labelledby="g-internship">
+    <div class="sec-head"><h2 class="label" id="g-internship" style="font-size:22px;color:var(--ink)">Internship</h2><p style="margin:0;color:var(--soft)">Summers in travel design and procurement.</p></div>
+    <div class="cards"><a class="card rise" style="--d:0.21000000000000002s" href="https://priorworld.com/" target="_blank" rel="noopener" data-tags="Internship"><div class="pic"><img src="img/nyc-central-park.jpg" alt="" loading="lazy"></div><span class="t">PRIOR World</span><span class="s">Luxury travel design &amp; operations in New York</span></a><a class="card rise" style="--d:0.0s" href="https://www.biofermenergy.com/" target="_blank" rel="noopener" data-tags="Internship"><div class="pic"><img src="img/bioferm-site.jpg" alt="" loading="lazy"></div><span class="t">Bioferm</span><span class="s">Procurement &amp; marketing in Madison</span></a></div>
+  </section>
+  <section class="sec" aria-labelledby="g-projects">
+    <div class="sec-head"><h2 class="label" id="g-projects" style="font-size:22px;color:var(--ink)">Projects</h2><p style="margin:0;color:var(--soft)">Things I've started myself.</p></div>
+    <div class="cards"><a class="card rise" style="--d:0.07s" href="case-sage-circle.html" data-tags="Projects"><div class="pic"><img src="img/sage-boutique.jpg" alt="" loading="lazy"><svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#2F3A2B"/><text x="60" y="82" text-anchor="middle" font-family="'Bodoni 72', Didot, 'Bodoni MT', 'Times New Roman', serif" font-size="70" fill="#F6F3EC">S</text><path d="M42 94 H78" stroke="#7CC7BF" stroke-width="2.5"/></svg></div><span class="t">Sage Circle</span><span class="s">My venture for secondhand designer clothing</span></a><a class="card rise" style="--d:0.14s" href="case-kulterra.html" data-tags="Projects"><div class="pic"><img src="img/kulterra-letters.jpg" alt="" loading="lazy"></div><span class="t">Kulterra Collective</span><span class="s">A pen pal program turned writing collective</span></a><a class="card rise" style="--d:0.21000000000000002s" href="case-scm-club.html" data-tags="Projects"><div class="pic"><img src="img/scm-club.jpg" alt="" loading="lazy"></div><span class="t">Northeastern Supply Chain Management Club</span><span class="s">President · I help lead our annual Case Competition</span></a></div>
   </section>
 </main>
 <footer class="wrap"><div class="foot">
@@ -259,7 +316,7 @@ a.row:hover::after { transform: scaleX(1); }
     <div><p class="label">Follow</p><div class="links"><a class="roll caps" href="https://www.linkedin.com/in/ava-rikkers07/" target="_blank" rel="noopener"><span>LinkedIn</span><span aria-hidden="true">LinkedIn</span></a><a class="roll caps" href="https://www.kulterracollective.com/" target="_blank" rel="noopener"><span>Kulterra</span><span aria-hidden="true">Kulterra</span></a><a class="roll caps" href="https://substack.com/@kulterracollective" target="_blank" rel="noopener"><span>Substack</span><span aria-hidden="true">Substack</span></a><a class="roll caps" href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener"><span>Sage Circle</span><span aria-hidden="true">Sage Circle</span></a><a class="roll caps" href="https://www.pinterest.com/avarikkers/" target="_blank" rel="noopener"><span>Ava's Lens</span><span aria-hidden="true">Ava's Lens</span></a></div></div>
     <div class="right"><p class="label">Contact</p><div class="links" style="justify-content:flex-end"><a class="roll caps" href="mailto:avarikkers@gmail.com"><span>avarikkers@gmail.com</span><span aria-hidden="true">avarikkers@gmail.com</span></a></div></div>
   </div>
-  <div class="pit" aria-hidden="true"><span class="pill">Madison → Boston</span><span class="pill">International Business</span><span class="pill">Spanish</span><span class="pill">slalom skiing</span><span class="pill">pen pals → collective</span><span class="pill">AI × nutrition</span><span class="pill">Rome · Sarajevo · Belgrade · Cairo</span><span class="pill">Dean's List</span><span class="pill">piano</span><span class="pill">farmers markets</span><span class="pill">BCG · Toast · PRIOR</span><span class="pill">Boston Cares</span><span class="pill">Para Ti</span><span class="pill">euchre</span><span class="pill">par-3 golf</span><span class="pill">sewing</span></div>
+  <div class="pit" aria-hidden="true"><span class="pill">Piano</span><span class="pill">Meditation</span><span class="pill">Yoga</span><span class="pill">Art Museums</span><span class="pill">Wake Surfing</span><span class="pill">Ice Skating</span><span class="pill">Cooking</span><span class="pill">Going Out to Eat</span><span class="pill">Beli (Rating Restaurants)</span><span class="pill">Hosting Themed Nights</span><span class="pill">Holiday Decorating</span><span class="pill">Interior Design</span><span class="pill">Sewing</span><span class="pill">Par-3 Golf</span><span class="pill">Euchre</span><span class="pill">Reading</span><span class="pill">YouTube</span><span class="pill">Saturday Farmers Market on the Square</span></div>
   <p class="copy-line">© 2026 Ava Rikkers · Boston, MA</p>
 </div></footer>
 <script>
@@ -365,5 +422,6 @@ a.row:hover::after { transform: scaleX(1); }
   if (document.readyState === 'complete') watch(); else window.addEventListener('load', watch);
 })();
 </script>
+
 </body>
 </html>
