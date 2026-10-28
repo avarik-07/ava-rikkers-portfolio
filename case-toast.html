@@ -135,9 +135,10 @@ a.row:hover::after { transform: scaleX(1); }
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--ink);
   font-family: var(--sans); font-size: 15px; font-weight: 500; text-decoration: none; color: var(--ink); transition: transform .25s, background .25s, color .25s; }
 .btn:hover { transform: translateY(-2px); }
-.btn.dark { background: var(--ink); color: var(--bg); }
-.btn.dark svg rect { fill: var(--bg); }
-.btn.dark svg path { fill: var(--ink); }
+.btn.dark { background: #0A66C2; border-color: #0A66C2; color: #fff; }
+.btn.dark:hover { background: #004182; border-color: #004182; }
+.btn.dark svg rect { fill: #fff; }
+.btn.dark svg path { fill: #0A66C2; }
 .case-title { display: flex; align-items: center; gap: 18px; }
 .logo-box.big { width: 64px; height: 64px; border-radius: 14px; flex: none; }
 
