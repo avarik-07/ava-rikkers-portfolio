@@ -122,8 +122,8 @@ a.row:hover::after { transform: scaleX(1); }
 .entry p.d { margin: 8px 0 0; max-width: 40em; }
 .entry .more { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .about-wrap { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 32px; align-items: start; }
-.headshot { margin: 0; border-radius: var(--r); overflow: hidden; aspect-ratio: 3 / 4; background: var(--tile); }
-.headshot img { width: 100%; height: 100%; object-fit: cover; }
+.headshot { margin: 0; border-radius: var(--r); overflow: hidden; aspect-ratio: 1 / 1; background: var(--tile); }
+.headshot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%; }
 .about-copy { display: grid; gap: 14px; font-size: 20px; line-height: 1.4; max-width: 36em; }
 .about-copy p { margin: 0; }
 .reach { display: grid; gap: 18px; justify-items: start; }
@@ -315,7 +315,7 @@ a.row:hover::after { transform: scaleX(1); }
     <div><p class="label">Follow</p><div class="links"><a class="roll caps" href="https://www.linkedin.com/in/ava-rikkers07/" target="_blank" rel="noopener"><span>LinkedIn</span><span aria-hidden="true">LinkedIn</span></a><a class="roll caps" href="https://www.kulterracollective.com/" target="_blank" rel="noopener"><span>Kulterra</span><span aria-hidden="true">Kulterra</span></a><a class="roll caps" href="https://substack.com/@kulterracollective" target="_blank" rel="noopener"><span>Substack</span><span aria-hidden="true">Substack</span></a><a class="roll caps" href="https://www.instagram.com/sagebyrefyndly/" target="_blank" rel="noopener"><span>Sage Circle</span><span aria-hidden="true">Sage Circle</span></a><a class="roll caps" href="https://www.pinterest.com/avarikkers/" target="_blank" rel="noopener"><span>Ava's Lens</span><span aria-hidden="true">Ava's Lens</span></a></div></div>
     <div class="right"><p class="label">Contact</p><div class="links" style="justify-content:flex-end"><a class="roll caps" href="mailto:avarikkers@gmail.com"><span>avarikkers@gmail.com</span><span aria-hidden="true">avarikkers@gmail.com</span></a></div></div>
   </div>
-  <div class="pit" aria-hidden="true"><span class="pill">Piano</span><span class="pill">Meditation</span><span class="pill">Yoga</span><span class="pill">Art Museums</span><span class="pill">Wake Surfing</span><span class="pill">Ice Skating</span><span class="pill">Cooking</span><span class="pill">Going Out to Eat</span><span class="pill">Beli (Rating Restaurants)</span><span class="pill">Hosting Themed Nights</span><span class="pill">Holiday Decorating</span><span class="pill">Interior Design</span><span class="pill">Sewing</span><span class="pill">Par-3 Golf</span><span class="pill">Euchre</span><span class="pill">Reading</span><span class="pill">YouTube</span><span class="pill">Saturday Farmers Market on the Square</span></div>
+  <div class="pit" aria-hidden="true"><span class="pill">Piano</span><span class="pill">Meditation</span><span class="pill">Yoga</span><span class="pill">Weightlifting</span><span class="pill">Golf</span><span class="pill">Wake Surfing</span><span class="pill">Wakeboarding</span><span class="pill">Ice Skating</span><span class="pill">Boating</span><span class="pill">Hiking</span><span class="pill">Camping</span><span class="pill">National Parks</span><span class="pill">Traveling</span><span class="pill">Art Museums</span><span class="pill">Going to the Movies</span><span class="pill">Cooking</span><span class="pill">Going Out to Eat</span><span class="pill">Trying New Cuisines</span><span class="pill">Café Hopping</span><span class="pill">Beli (Rating Restaurants)</span><span class="pill">Hosting Themed Nights</span><span class="pill">Holiday Decorating</span><span class="pill">Interior Design</span><span class="pill">Woodworking</span><span class="pill">Sewing</span><span class="pill">Pinterest</span><span class="pill">Blogging</span><span class="pill">Reading</span><span class="pill">YouTube</span><span class="pill">Chess</span><span class="pill">Codenames</span><span class="pill">Euchre</span><span class="pill">Volunteering</span><span class="pill">Walking Dogs</span><span class="pill">Pet Sitting</span><span class="pill">Babysitting</span><span class="pill">Hanging Out with Friends</span><span class="pill">Time with Family</span><span class="pill">Jellyfish (My Favorite Animal!)</span><span class="pill">Saturday Farmers Market on the Square</span></div>
   <p class="copy-line">© 2026 Ava Rikkers · Boston, MA</p>
 </div></footer>
 <script>
@@ -381,7 +381,16 @@ a.row:hover::after { transform: scaleX(1); }
   var start = function () {
     if (started) return; started = true;
     if (!window.Matter) { goStatic(); return; }
-    var M = window.Matter, W = pit.clientWidth, H = pit.clientHeight;
+    var W = pit.clientWidth, all = Array.prototype.slice.call(pit.querySelectorAll('.pill'));
+    // On a phone, drop a random 16 so the pile stays a sensible height; on bigger screens all of them fall
+    if (W < 640) {
+      all.sort(function () { return Math.random() - 0.5; }).slice(16).forEach(function (el) { el.remove(); });
+    }
+    // Make the pit tall enough for the pile: total pill area, loosely packed
+    var area = 0;
+    pit.querySelectorAll('.pill').forEach(function (el) { area += el.offsetWidth * el.offsetHeight; });
+    pit.style.height = Math.max(260, Math.round(area * 1.9 / W)) + 'px';
+    var M = window.Matter, H = pit.clientHeight;
     var engine = M.Engine.create(); engine.gravity.y = 1.1;
     var wall = { isStatic: true };
     M.Composite.add(engine.world, [
