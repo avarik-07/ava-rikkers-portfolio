@@ -109,6 +109,10 @@ a.row:hover::after { transform: scaleX(1); }
 .res > .label { font-size: 22px; color: var(--ink); }
 .entries { display: grid; }
 .entry { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 4px 28px; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+.entry.has-thumb { grid-template-columns: 200px minmax(0, 1fr) 120px; }
+.entry .thumb { display: block; width: 120px; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: var(--tile); }
+.entry .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.entry:hover .thumb img { transform: scale(1.08); }
 .entry:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
 .entry .when { color: var(--soft); padding-top: 4px; }
 .entry h3 { margin: 0; font-family: var(--sans); font-size: 19px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; }
@@ -253,6 +257,9 @@ a.row:hover::after { transform: scaleX(1); }
 @media (max-width: 900px) {
   .res { grid-template-columns: minmax(0, 1fr); }
   .entry { grid-template-columns: minmax(0, 1fr); }
+  .entry.has-thumb { grid-template-columns: minmax(0, 1fr) 84px; }
+  .entry.has-thumb .when { grid-column: 1 / -1; }
+  .entry .thumb { width: 84px; align-self: start; }
   .row { grid-template-columns: minmax(0, 1fr) auto; }
   .row .org { grid-column: 1; }
   .row .d { grid-column: 1 / -1; }
@@ -294,7 +301,6 @@ a.row:hover::after { transform: scaleX(1); }
     <h1 class="rise in">Essays on culture, place &amp; time, and <em>the places I'd send a friend.</em></h1>
     <div class="side-copy rise in"><p>I write for Kulterra Collective's journal and Substack, and keep running guides to Boston and New York.</p></div>
   </header>
-  <div class="hero-pic rise in" style="aspect-ratio:16/7;margin-bottom:40px"><img src="img/collage.jpg" alt="A collage of letters, flowers, balloons and buildings"></div>
   <section class="sec"><div class="sec-head"><h2 class="label">Essays</h2></div><div class="essays"><a class="essay rise" style="--d:0.0s;background:#8FA35C" href="https://www.kulterracollective.com/journal/ouwbr9n9997bge5oinxupqqhnrq5jv" target="_blank" rel="noopener"><span class="art"><span>Notes</span></span><span class="txt"><b>Notes on Passivity</b><span>Oct 2026 · Kulterra Collective</span></span></a><a class="essay rise" style="--d:0.07s;background:#B5502E" href="https://www.kulterracollective.com/journal/k71gleyb4nrotycroyf3yx61x9qs48" target="_blank" rel="noopener"><span class="art"><span>Told</span></span><span class="txt"><b>Told to Forget</b><span>Aug 2026 · Kulterra Collective</span></span></a><a class="essay rise" style="--d:0.14s;background:#3F6E9E" href="https://www.kulterracollective.com/journal/timeless-or-naught" target="_blank" rel="noopener"><span class="art"><span>Timeless</span></span><span class="txt"><b>Timeless, or naught</b><span>Jun 2026 · Kulterra Collective</span></span></a><a class="essay rise" style="--d:0.21000000000000002s;background:#C98BB9" href="https://www.kulterracollective.com/journal/the-drina" target="_blank" rel="noopener"><span class="art"><span>Drina</span></span><span class="txt"><b>The Drina</b><span>Mar 2026 · Kulterra Collective</span></span></a></div>
     <div class="more-link"><a class="dot caps" href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Subscribe on Substack</a></div></section>
   <section class="sec"><div class="sec-head"><h2 class="label">City guides</h2></div><div class="rows"><a class="row rise" style="--d:0.0s" href="boston-guide.html"><h3>Boston Guide</h3><span class="org">Boston</span><p class="d">Food, coffee, shopping and walks, from Kava Neo-Taverna to the North End.</p><span class="when caps">36 spots <span class="arrow">→</span></span></a><a class="row rise" style="--d:0.05s" href="nyc-guide.html"><h3>New York City Guide</h3><span class="org">New York</span><p class="d">Brunch, dinner, rooftops, dessert, coffee, walks and yoga.</p><span class="when caps">36 spots <span class="arrow">→</span></span></a></div></section>

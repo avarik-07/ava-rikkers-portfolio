@@ -109,6 +109,10 @@ a.row:hover::after { transform: scaleX(1); }
 .res > .label { font-size: 22px; color: var(--ink); }
 .entries { display: grid; }
 .entry { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 4px 28px; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+.entry.has-thumb { grid-template-columns: 200px minmax(0, 1fr) 120px; }
+.entry .thumb { display: block; width: 120px; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: var(--tile); }
+.entry .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.entry:hover .thumb img { transform: scale(1.08); }
 .entry:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
 .entry .when { color: var(--soft); padding-top: 4px; }
 .entry h3 { margin: 0; font-family: var(--sans); font-size: 19px; font-weight: 500; letter-spacing: -.01em; line-height: 1.3; }
@@ -253,6 +257,9 @@ a.row:hover::after { transform: scaleX(1); }
 @media (max-width: 900px) {
   .res { grid-template-columns: minmax(0, 1fr); }
   .entry { grid-template-columns: minmax(0, 1fr); }
+  .entry.has-thumb { grid-template-columns: minmax(0, 1fr) 84px; }
+  .entry.has-thumb .when { grid-column: 1 / -1; }
+  .entry .thumb { width: 84px; align-self: start; }
   .row { grid-template-columns: minmax(0, 1fr) auto; }
   .row .org { grid-column: 1; }
   .row .d { grid-column: 1 / -1; }
@@ -300,11 +307,11 @@ a.row:hover::after { transform: scaleX(1); }
   </section>
   <section class="sec" aria-labelledby="g-co-op">
     <div class="sec-head"><h2 class="label" id="g-co-op" style="font-size:22px;color:var(--ink)">Co-op</h2><p style="margin:0;color:var(--soft)">Six-month roles in brand and analytics.</p></div>
-    <div class="cards"><a class="card rise" style="--d:0.07s" href="case-toast-ai-search.html" data-tags="Co-op"><div class="pic"><img src="img/toast-team.jpg" alt="" loading="lazy"></div><span class="t">Toast</span><span class="s">International brand management &amp; an AI visibility study</span></a><a class="card rise" style="--d:0.14s" href="https://www.bcg.com/" target="_blank" rel="noopener" data-tags="Co-op"><div class="pic word" style="background:#1C6B4A;color:#FFFFFF"><span>BCG</span></div><span class="t">Boston Consulting Group</span><span class="s">Knowledge analytics &amp; GenAI</span></a></div>
+    <div class="cards"><a class="card rise" style="--d:0.07s" href="case-toast-ai-search.html" data-tags="Co-op"><div class="pic"><img src="img/toast-team.jpg" alt="" loading="lazy"></div><span class="t">Toast</span><span class="s">International brand management &amp; an AI visibility study</span></a><a class="card rise" style="--d:0.14s" href="https://www.bcg.com/" target="_blank" rel="noopener" data-tags="Co-op"><div class="pic"><img src="img/nyc-central-park.jpg" alt="" loading="lazy"></div><span class="t">Boston Consulting Group</span><span class="s">Knowledge analytics &amp; GenAI</span></a></div>
   </section>
   <section class="sec" aria-labelledby="g-internship">
     <div class="sec-head"><h2 class="label" id="g-internship" style="font-size:22px;color:var(--ink)">Internship</h2><p style="margin:0;color:var(--soft)">Summers in travel design and procurement.</p></div>
-    <div class="cards"><a class="card rise" style="--d:0.21000000000000002s" href="https://priorworld.com/" target="_blank" rel="noopener" data-tags="Internship"><div class="pic"><img src="img/nyc-central-park.jpg" alt="" loading="lazy"></div><span class="t">PRIOR World</span><span class="s">Luxury travel design &amp; operations in New York</span></a><a class="card rise" style="--d:0.0s" href="https://www.biofermenergy.com/" target="_blank" rel="noopener" data-tags="Internship"><div class="pic"><img src="img/bioferm-site.jpg" alt="" loading="lazy"></div><span class="t">Bioferm</span><span class="s">Procurement &amp; marketing in Madison</span></a></div>
+    <div class="cards"><a class="card rise" style="--d:0.21000000000000002s" href="https://priorworld.com/" target="_blank" rel="noopener" data-tags="Internship"><div class="pic"><img src="img/collage.jpg" alt="" loading="lazy"></div><span class="t">PRIOR World</span><span class="s">Luxury travel design &amp; operations in New York</span></a><a class="card rise" style="--d:0.0s" href="https://www.biofermenergy.com/" target="_blank" rel="noopener" data-tags="Internship"><div class="pic"><img src="img/bioferm-site.jpg" alt="" loading="lazy"></div><span class="t">Bioferm</span><span class="s">Procurement &amp; marketing in Madison</span></a></div>
   </section>
   <section class="sec" aria-labelledby="g-projects">
     <div class="sec-head"><h2 class="label" id="g-projects" style="font-size:22px;color:var(--ink)">Projects</h2><p style="margin:0;color:var(--soft)">Things I've started myself.</p></div>
