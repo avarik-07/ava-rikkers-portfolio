@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madison City Guide · Ava Rikkers</title>
+<meta name="description" content="Ava Rikkers' Madison guide: My home. My stars.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500&display=swap">
+<style>
+:root { --bg: #FFFFFF; --tile: #F1F1EF; --ink: #161616; --muted: #6E6E6E; --line: #E7E7E7; --chip: transparent;
+  --f-ui: "EB Garamond", Garamond, "Times New Roman", serif; --f-name: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --bg: #111111; --tile: #1C1C1C; --ink: #EDEDED; --muted: #9A9A9A; --line: #262626; --chip: transparent; color-scheme: dark; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-weight: 400; font-size: 17px; line-height: 1.6; }
+.page { max-width: 1080px; margin: 0 auto; padding: 24px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 40px; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.back { font-family: var(--f-name); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; justify-self: start; color: var(--muted); }
+.back:hover { color: var(--ink); }
+.hero { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 21 / 9; min-height: 240px; max-width: 100%; background: var(--tile); }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55)); }
+.hero .t { position: absolute; left: 28px; right: 28px; bottom: 24px; z-index: 1; color: #fff; display: grid; gap: 6px; }
+.hero h1 { margin: 0; font-family: var(--f-name); font-weight: 400; font-size: clamp(34px, 6vw, 68px); line-height: 1; letter-spacing: -.03em; }
+.hero p { margin: 0; font-size: 16px; opacity: .92; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a { font-family: var(--f-name); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding: 4px 0; margin-right: 18px; border-bottom: 1px solid transparent; }
+.jump a:hover { color: var(--ink); border-color: var(--ink); }
+.jump a:hover { filter: brightness(.95); }
+section { display: grid; gap: 16px; scroll-margin-top: 16px; }
+section h2 { margin: 0; font-size: 19px; font-weight: 400; font-style: italic; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+section .note { margin: -6px 0 0; color: var(--muted); max-width: 62ch; }
+.photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.photos figure { margin: 0; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--tile); }
+.photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photos figcaption { position: absolute; inset: auto 0 0 0; padding: 32px 14px 12px; color: #fff; font-family: var(--f-name); font-size: 14px; background: linear-gradient(180deg, transparent, rgba(0,0,0,.55)); }
+.spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+.spot { border: 0; border-radius: 0; padding: 4px 0; display: grid; gap: 4px; align-content: start; }
+.spot h3 { margin: 0; font-family: var(--f-name); font-size: 17px; font-weight: 500; line-height: 1.3; }
+.spot h3 a { text-decoration: none; }
+.spot h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.spot h3 span { font-weight: 400; color: var(--muted); font-size: 13px; margin-left: 4px; }
+.spot p { margin: 0; font-size: 14.5px; color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+@media (max-width: 600px) { .hero { aspect-ratio: 4 / 3; } .hero .t { left: 18px; right: 18px; bottom: 18px; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <a class="back" href="journal.html">← Ava Rikkers · Writing</a>
+  <header class="hero">
+    <img src="img/madison-capitol.jpg" alt="Madison">
+    <div class="t"><h1>Madison City Guide</h1><p>My home. My stars.</p></div>
+  </header>
+  <nav class="jump" aria-label="Sections"><a href="#breakfast--bakeries">Breakfast &amp; Bakeries</a><a href="#lunch--dinner">Lunch &amp; Dinner</a><a href="#rooftops--bars">Rooftops &amp; Bars</a><a href="#dessert">Dessert</a><a href="#coffee">Coffee</a><a href="#walks--neighborhoods">Walks &amp; Neighborhoods</a><a href="#activities">Activities</a></nav>
+  <div class="photos"><figure><img src="img/madison-sailboats.jpg" alt="Sunset on the water" loading="lazy"><figcaption>Sunset on the water</figcaption></figure><figure><img src="img/madison-lake.jpg" alt="Lake days" loading="lazy"><figcaption>Lake days</figcaption></figure><figure><img src="img/madison-dinner.jpg" alt="Dinner by candlelight" loading="lazy"><figcaption>Dinner by candlelight</figcaption></figure></div>
+  <section id="breakfast--bakeries">
+    <h2>Breakfast &amp; Bakeries</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+Pancake+House+Madison+WI" target="_blank" rel="noopener">The Pancake House</a></h3><p>Forever my number one breakfast place. They have the best pancakes, burritos, eggs, sausage, hot chocolate, juice, crepes, waffles… I can go on.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Marigold+Madison+WI" target="_blank" rel="noopener">Marigold</a></h3><p>Huge menu, and ya can&#x27;t really go wrong! There&#x27;s usually a line, especially on weekends.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Batch+Bakehouse+Madison+WI" target="_blank" rel="noopener">Batch Bakehouse</a></h3><p>Fresh pastries baked daily, and locally owned! Great people.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Madison+Sourdough+Madison+WI" target="_blank" rel="noopener">Madison Sourdough</a></h3><p>YUMM amazing sourdough. I mean, how can they not?</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Bassett+St.+Brunch+Club+Madison+WI" target="_blank" rel="noopener">Bassett St. Brunch Club</a></h3><p>Love this place, and portions are huge. Though parking is always a pain.</p></div>
+    </div>
+  </section>
+  <section id="lunch--dinner">
+    <h2>Lunch &amp; Dinner</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Sardine+Madison+WI" target="_blank" rel="noopener">Sardine</a></h3><p>A Madison staple, with some of the best moules frites I have had.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=The+Harvey+House+Madison+WI" target="_blank" rel="noopener">The Harvey House</a></h3><p>Best people in the world. (I&#x27;m biased; I&#x27;ve worked here for four years.) Upscale Wisconsin supper club. A must.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Ian%27s+Pizza+Madison+WI" target="_blank" rel="noopener">Ian&#x27;s Pizza</a></h3><p>Tops many NYC pizza places for me… Smokey the Bandit is always my go-to.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Fairchild+Madison+WI" target="_blank" rel="noopener">Fairchild</a></h3><p>Super cute &amp; quaint restaurant. The food and experience are fancier, but the setting is laid back.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Stalzy%27s+Deli+Madison+WI" target="_blank" rel="noopener">Stalzy&#x27;s Deli</a></h3><p>Wow, their grilled cheese is just perfect. The sandwiches are all delicious – I credit the bread.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Gates+%26+Brovi+Madison+WI" target="_blank" rel="noopener">Gates &amp; Brovi</a></h3><p>A more casual setting; go here to watch a game, or just for a Tuesday dinner out. Still, the food feels elevated: great oysters &amp; I think they have the best chicken piccata.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Tornado+Steak+House+Madison+WI" target="_blank" rel="noopener">Tornado Steak House</a></h3><p>Great steakhouse. Classic Madison.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Ama+Kitchen+Madison+WI" target="_blank" rel="noopener">Ama Kitchen</a></h3><p>Really great Nepalese food. Loved their chai. Note: my meal lasted three hours. Service is attentive, but ~unhurried~.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=RED+sushi+Madison+WI" target="_blank" rel="noopener">RED</a></h3><p>I find RED to have the best sushi in Madison. The decor is moody (red &amp; black) &amp; I love their outdoor seating during the summer.</p></div>
+    </div>
+  </section>
+  <section id="rooftops--bars">
+    <h2>Rooftops &amp; Bars</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Eno+Vino+Madison+WI" target="_blank" rel="noopener">Eno Vino</a></h3><p>A great view of the Capitol! The food is pretty okay; drinks are great.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Mint+Mark+Madison+WI" target="_blank" rel="noopener">Mint Mark</a></h3><p>Had an amazing time at Mint Mark, and such a cool view of the city.</p></div>
+    </div>
+  </section>
+  <section id="dessert">
+    <h2>Dessert</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Ice+Cream+Social+Madison+WI" target="_blank" rel="noopener">Ice Cream Social</a></h3><p>Always smells so good &amp; the rotating flavors are perfect.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Yummee+Madison+WI" target="_blank" rel="noopener">Yummee</a></h3><p>The ooey-gooey chocolate chip cookie is extravagant. The name speaks for itself.</p></div>
+    </div>
+  </section>
+  <section id="coffee">
+    <h2>Coffee</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Ancora+Cafe+%2B+Bakery+Madison+WI" target="_blank" rel="noopener">Ancora Cafe + Bakery</a></h3><p>Any Ancora cafe is so cute. (I also worked here.)</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Lakeside+St.+Coffee+House+Madison+WI" target="_blank" rel="noopener">Lakeside St. Coffee House</a></h3><p>This place makes me feel warm. I love the wooden details &amp; casual, nature setting.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Michelangelo%27s+Coffee+House+Madison+WI" target="_blank" rel="noopener">Michelangelo&#x27;s Coffee House</a></h3><p>Some of the best coffee in Madison; I really should go more!</p></div>
+    </div>
+  </section>
+  <section id="walks--neighborhoods">
+    <h2>Walks &amp; Neighborhoods</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Memorial+Union+Terrace+Madison+WI" target="_blank" rel="noopener">The Union</a></h3><p>The quintessential Madison spot to hang out at and walk to.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=UW+Arboretum+Madison+WI" target="_blank" rel="noopener">Arboretum</a></h3><p>A beautiful walk through nature, neighborhoods, and around lakes.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=State+Street+Madison+WI" target="_blank" rel="noopener">State Street</a></h3><p>A walk past restaurants, shops and the UW–Madison campus! You&#x27;ll either end up at the Capitol or the Union!</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Hilldale+Madison+WI" target="_blank" rel="noopener">Hilldale</a></h3><p>An outdoor shopping mall that is elevated, but inviting!</p></div>
+    </div>
+  </section>
+  <section id="activities">
+    <h2>Activities</h2>
+    <div class="spots">
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=public+golf+courses+Madison+WI" target="_blank" rel="noopener">Golf</a></h3><p>Madison has great public golf courses: Odana, Glenway, Yahara.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Schwoegler+Bowling+Madison+WI" target="_blank" rel="noopener">Bowling</a></h3><p>Schwoegler is just a classic, and Union South, which is downtown, is also fun.</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Dane+County+Farmers+Market+Madison+WI" target="_blank" rel="noopener">Farmers market on the Square</a></h3><p>Madison has the best farmers market I&#x27;ve ever been to (summer only!).</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Tenney+Park+ice+skating+Madison+WI" target="_blank" rel="noopener">Ice skating</a></h3><p>During the winter months, go ice skating at Tenney Park or at the Edgewater!</p></div>
+      <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Olbrich+Botanical+Gardens+Madison+WI" target="_blank" rel="noopener">Olbrich Botanical Gardens</a></h3><p>Fun fact: this is where my parents got married! Beautiful gardens &amp; you can go year-round.</p></div>
+    </div>
+  </section>
+  <footer><span>By Ava Rikkers · <a href="./">avarikkers.com</a></span><span>Tap a spot to open it in Google Maps</span></footer>
+</div>
+</body>
+</html>

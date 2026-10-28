@@ -164,6 +164,19 @@ a.row:hover::after { transform: scaleX(1); }
 .place::before { content: ""; grid-row: 1 / 3; align-self: center; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--bg); transition: background .25s, transform .25s; }
 .place:hover::before, .place.on::before { background: var(--dot); transform: scale(1.2); }
 .place b { font-family: var(--sans); font-weight: 500; font-size: 18px; }
+.place::after { content: "+"; grid-column: 3; grid-row: 1 / 3; align-self: center; font-family: var(--sans); font-size: 20px; color: var(--soft); transition: transform .3s; }
+.place { grid-template-columns: auto minmax(0, 1fr) auto; }
+.place b, .place span { grid-column: 2; }
+.place::before { grid-column: 1; }
+.place[aria-expanded="true"]::after { transform: rotate(45deg); }
+.place-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.2, .7, .2, 1); }
+.place-more > div { overflow: hidden; padding-left: 26px; }
+.place-item.open .place-more { grid-template-rows: 1fr; }
+.place-item.open .place-more > div { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.place-more p { margin: 12px 0; }
+.place-more .pics { display: grid; grid-auto-flow: column; grid-auto-columns: 110px; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+.place-more .pics img { width: 110px; height: 82px; object-fit: cover; border-radius: 8px; }
+.place-more .soon { cursor: default; color: var(--soft); }
 .place span { color: var(--soft); }
 .next-box { margin-top: 10px; background: var(--tile); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; }
 .next-box h2 { margin: 0; font-weight: 400; font-style: italic; font-size: 26px; }
@@ -309,13 +322,13 @@ a.row:hover::after { transform: scaleX(1); }
   <header class="page-head">
     <h1 class="rise in">Where I've lived, <em>and where I might go next.</em></h1>
     <div class="side-copy rise in"><p>Three American cities, a semester in Rome and a Dialogue of Civilizations through Bosnia, Serbia and Egypt.
-      Drag the globe to spin it, or pick a place.</p></div>
+      Drag the globe to spin it, or pick a place to open my notes, photos and city guides.</p></div>
   </header>
   <div class="abroad">
     <div class="globe" id="globe" data-places="[{&quot;name&quot;: &quot;Madison, Wisconsin&quot;, &quot;short&quot;: &quot;Madison&quot;, &quot;lon&quot;: -89.4, &quot;lat&quot;: 43.07, &quot;dx&quot;: -12, &quot;dy&quot;: 4}, {&quot;name&quot;: &quot;Boston, Massachusetts&quot;, &quot;short&quot;: &quot;Boston&quot;, &quot;lon&quot;: -71.06, &quot;lat&quot;: 42.36, &quot;dx&quot;: 12, &quot;dy&quot;: -6}, {&quot;name&quot;: &quot;New York City&quot;, &quot;short&quot;: &quot;NYC&quot;, &quot;lon&quot;: -74.01, &quot;lat&quot;: 40.71, &quot;dx&quot;: 12, &quot;dy&quot;: 14}, {&quot;name&quot;: &quot;Rome, Italy&quot;, &quot;short&quot;: &quot;Rome&quot;, &quot;lon&quot;: 12.5, &quot;lat&quot;: 41.9, &quot;dx&quot;: -12, &quot;dy&quot;: 14}, {&quot;name&quot;: &quot;Sarajevo, Bosnia and Herzegovina&quot;, &quot;short&quot;: &quot;Sarajevo&quot;, &quot;lon&quot;: 18.41, &quot;lat&quot;: 43.86, &quot;dx&quot;: -12, &quot;dy&quot;: -6}, {&quot;name&quot;: &quot;Belgrade, Serbia&quot;, &quot;short&quot;: &quot;Belgrade&quot;, &quot;lon&quot;: 20.45, &quot;lat&quot;: 44.79, &quot;dx&quot;: 12, &quot;dy&quot;: -4}, {&quot;name&quot;: &quot;Cairo, Egypt&quot;, &quot;short&quot;: &quot;Cairo&quot;, &quot;lon&quot;: 31.24, &quot;lat&quot;: 30.04, &quot;dx&quot;: 12, &quot;dy&quot;: 4}]" data-lived="840,380,070,688,818" aria-label="A spinning globe with a marker on each place Ava has lived" role="img"></div>
     <div class="places">
-      <div class="group"><h2 class="label">USA</h2><button class="place" type="button" data-place="0"><b>Madison, Wisconsin</b><span>Hometown</span></button><button class="place" type="button" data-place="1"><b>Boston, Massachusetts</b><span>Northeastern University</span></button><button class="place" type="button" data-place="2"><b>New York City</b><span>PRIOR World · Summer 2026</span></button></div>
-      <div class="group"><h2 class="label">Abroad</h2><button class="place" type="button" data-place="3"><b>Rome, Italy</b><span>John Cabot University · volunteering with Tuttoblue &amp; VO.RE.CO · Fall 2023</span></button><button class="place" type="button" data-place="4"><b>Sarajevo, Bosnia and Herzegovina</b><span>Dialogue of Civilizations · Fall 2025</span></button><button class="place" type="button" data-place="5"><b>Belgrade, Serbia</b><span>Dialogue of Civilizations · Fall 2025</span></button><button class="place" type="button" data-place="6"><b>Cairo, Egypt</b><span>Dialogue of Civilizations · Fall 2025</span></button></div>
+      <div class="group"><h2 class="label">USA</h2><div class="place-item"><button class="place" type="button" data-place="0" aria-expanded="false" aria-controls="pl-0"><b>Madison, Wisconsin</b><span>Hometown</span></button><div class="place-more" id="pl-0"><div><p>My home. My stars. Where to eat, get coffee, walk and skate, from my hometown.</p><div class=pics><img src="img/madison-capitol.jpg" alt="" loading="lazy"><img src="img/madison-sailboats.jpg" alt="" loading="lazy"><img src="img/madison-lake.jpg" alt="" loading="lazy"><img src="img/madison-dinner.jpg" alt="" loading="lazy"></div><a class="dot go caps" href="madison-guide.html">Read my Madison guide</a></div></div></div><div class="place-item"><button class="place" type="button" data-place="1" aria-expanded="false" aria-controls="pl-1"><b>Boston, Massachusetts</b><span>Northeastern University</span></button><div class="place-more" id="pl-1"><div><p>Home for Northeastern. My favorite spots for food, coffee, shopping and walks.</p><div class=pics><img src="img/boston-public-library.jpg" alt="" loading="lazy"><img src="img/campus-fall.jpg" alt="" loading="lazy"><img src="img/campus-winter.jpg" alt="" loading="lazy"></div><a class="dot go caps" href="boston-guide.html">Read my Boston guide</a></div></div></div><div class="place-item"><button class="place" type="button" data-place="2" aria-expanded="false" aria-controls="pl-2"><b>New York City</b><span>PRIOR World · Summer 2026</span></button><div class="place-more" id="pl-2"><div><p>My summer with PRIOR World. I walked Orchard Street almost every day.</p><div class=pics><img src="img/nyc-skyline.jpg" alt="" loading="lazy"><img src="img/seaport-nyc.jpg" alt="" loading="lazy"></div><a class="dot go caps" href="nyc-guide.html">Read my New York guide</a></div></div></div></div>
+      <div class="group"><h2 class="label">Abroad</h2><div class="place-item"><button class="place" type="button" data-place="3" aria-expanded="false" aria-controls="pl-3"><b>Rome, Italy</b><span>John Cabot University · volunteering with Tuttoblue &amp; VO.RE.CO · Fall 2023</span></button><div class="place-more" id="pl-3"><div><p>A semester at John Cabot University, volunteering with Tuttoblue and VO.RE.CO. My guide is coming soon!</p><div class=pics><img src="img/rome-volunteering.jpg" alt="" loading="lazy"><img src="img/rome-voreco.jpg" alt="" loading="lazy"></div><span class="dot caps soon">Guide coming soon</span></div></div></div><div class="place-item"><button class="place" type="button" data-place="4" aria-expanded="false" aria-controls="pl-4"><b>Sarajevo, Bosnia and Herzegovina</b><span>Dialogue of Civilizations · Fall 2025</span></button><div class="place-more" id="pl-4"><div><p>Dialogue of Civilizations, Fall 2025. My guide is coming soon!</p><span class="dot caps soon">Guide coming soon</span></div></div></div><div class="place-item"><button class="place" type="button" data-place="5" aria-expanded="false" aria-controls="pl-5"><b>Belgrade, Serbia</b><span>Dialogue of Civilizations · Fall 2025</span></button><div class="place-more" id="pl-5"><div><p>Dialogue of Civilizations, Fall 2025. My guide is coming soon!</p><span class="dot caps soon">Guide coming soon</span></div></div></div><div class="place-item"><button class="place" type="button" data-place="6" aria-expanded="false" aria-controls="pl-6"><b>Cairo, Egypt</b><span>Dialogue of Civilizations · Fall 2025</span></button><div class="place-more" id="pl-6"><div><p>Dialogue of Civilizations, Fall 2025. My guide is coming soon!</p><span class="dot caps soon">Guide coming soon</span></div></div></div></div>
       <form class="next-box" id="next-box">
         <h2>Where should I live next?</h2>
         <label>A city, a country, a neighborhood<input name="place" required maxlength="120" placeholder="Lisbon?" autocomplete="off"></label>
@@ -461,6 +474,17 @@ window.addEventListener('load', function () {
     window.location.href = 'mailto:avarikkers@gmail.com?subject=' + encodeURIComponent('Where Ava should live next: ' + place) + '&body=' + encodeURIComponent(body);
   });
 
+  // Open a place's notes; one at a time
+  document.querySelectorAll('.place-item').forEach(function (item) {
+    item.querySelector('.place').addEventListener('click', function () {
+      var open = !item.classList.contains('open');
+      document.querySelectorAll('.place-item').forEach(function (x) {
+        x.classList.toggle('open', x === item && open);
+        x.querySelector('.place').setAttribute('aria-expanded', x === item && open ? 'true' : 'false');
+      });
+    });
+  });
+
   if (!el || !window.d3 || !window.topojson) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var places = JSON.parse(el.dataset.places), lived = el.dataset.lived.split(',');
@@ -478,6 +502,11 @@ window.addEventListener('load', function () {
   marks.append('circle').attr('class', 'core').attr('r', 4);
   marks.append('text').attr('x', function (d) { return d.dx; }).attr('y', function (d) { return d.dy; })
     .attr('text-anchor', function (d) { return d.dx < 0 ? 'end' : 'start'; }).text(function (d) { return d.short; });
+  // Click a marker to open that place
+  marks.style('cursor', 'pointer').on('click', function (e, d) {
+    var b = document.querySelector('[data-place="' + places.indexOf(d) + '"]');
+    if (b) { b.click(); b.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); }
+  });
 
   var rot = [60, -32, 0], land = null, paused = 0, dragging = false;
   var draw = function () {

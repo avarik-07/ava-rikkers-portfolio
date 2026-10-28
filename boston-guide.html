@@ -33,6 +33,10 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 section { display: grid; gap: 16px; scroll-margin-top: 16px; }
 section h2 { margin: 0; font-size: 19px; font-weight: 400; font-style: italic; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 12px; }
 section .note { margin: -6px 0 0; color: var(--muted); max-width: 62ch; }
+.photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.photos figure { margin: 0; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--tile); }
+.photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photos figcaption { position: absolute; inset: auto 0 0 0; padding: 32px 14px 12px; color: #fff; font-family: var(--f-name); font-size: 14px; background: linear-gradient(180deg, transparent, rgba(0,0,0,.55)); }
 .spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
 .spot { border: 0; border-radius: 0; padding: 4px 0; display: grid; gap: 4px; align-content: start; }
 .spot h3 { margin: 0; font-family: var(--f-name); font-size: 17px; font-weight: 500; line-height: 1.3; }

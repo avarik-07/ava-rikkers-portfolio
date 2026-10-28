@@ -33,6 +33,10 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 section { display: grid; gap: 16px; scroll-margin-top: 16px; }
 section h2 { margin: 0; font-size: 19px; font-weight: 400; font-style: italic; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 12px; }
 section .note { margin: -6px 0 0; color: var(--muted); max-width: 62ch; }
+.photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.photos figure { margin: 0; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--tile); }
+.photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photos figcaption { position: absolute; inset: auto 0 0 0; padding: 32px 14px 12px; color: #fff; font-family: var(--f-name); font-size: 14px; background: linear-gradient(180deg, transparent, rgba(0,0,0,.55)); }
 .spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
 .spot { border: 0; border-radius: 0; padding: 4px 0; display: grid; gap: 4px; align-content: start; }
 .spot h3 { margin: 0; font-family: var(--f-name); font-size: 17px; font-weight: 500; line-height: 1.3; }
@@ -49,7 +53,7 @@ footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13.5px
 <div class="page">
   <a class="back" href="journal.html">← Ava Rikkers · Writing</a>
   <header class="hero">
-    <img src="https://images.unsplash.com/photo-1492666673288-3c4b4576ad9a?auto=format&fit=crop&w=1800&q=75" alt="New York City">
+    <img src="img/nyc-skyline.jpg" alt="New York City">
     <div class="t"><h1>New York City Guide</h1><p>Some of my favorite spots for food, coffee, shopping, and walks! · Last updated August 8, 2026</p></div>
   </header>
   <nav class="jump" aria-label="Sections"><a href="#breakfast--brunch">Breakfast &amp; Brunch</a><a href="#lunch--dinner">Lunch &amp; Dinner</a><a href="#rooftops--bars">Rooftops &amp; Bars</a><a href="#from-my-friends">From My Friends</a><a href="#dessert">Dessert</a><a href="#coffee">Coffee</a><a href="#walks--neighborhoods">Walks &amp; Neighborhoods</a><a href="#bonus-yoga-studios">Bonus: Yoga Studios</a></nav>
@@ -131,7 +135,7 @@ footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13.5px
       <div class="spot"><h3><a href="https://www.google.com/maps/search/?api=1&query=Bhakti+Center+New+York+NY" target="_blank" rel="noopener">Bhakti Center</a></h3><p>Unmatched energy. Truly down-to-earth, in-touch people.</p></div>
     </div>
   </section>
-  <footer><span>By Ava Rikkers · <a href="./">avarikkers.com</a></span><span>Tap a spot to open it in Google Maps · Cover photo from <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></span></footer>
+  <footer><span>By Ava Rikkers · <a href="./">avarikkers.com</a></span><span>Tap a spot to open it in Google Maps</span></footer>
 </div>
 </body>
 </html>

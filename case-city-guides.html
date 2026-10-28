@@ -163,6 +163,19 @@ a.row:hover::after { transform: scaleX(1); }
 .place::before { content: ""; grid-row: 1 / 3; align-self: center; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--bg); transition: background .25s, transform .25s; }
 .place:hover::before, .place.on::before { background: var(--dot); transform: scale(1.2); }
 .place b { font-family: var(--sans); font-weight: 500; font-size: 18px; }
+.place::after { content: "+"; grid-column: 3; grid-row: 1 / 3; align-self: center; font-family: var(--sans); font-size: 20px; color: var(--soft); transition: transform .3s; }
+.place { grid-template-columns: auto minmax(0, 1fr) auto; }
+.place b, .place span { grid-column: 2; }
+.place::before { grid-column: 1; }
+.place[aria-expanded="true"]::after { transform: rotate(45deg); }
+.place-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.2, .7, .2, 1); }
+.place-more > div { overflow: hidden; padding-left: 26px; }
+.place-item.open .place-more { grid-template-rows: 1fr; }
+.place-item.open .place-more > div { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.place-more p { margin: 12px 0; }
+.place-more .pics { display: grid; grid-auto-flow: column; grid-auto-columns: 110px; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+.place-more .pics img { width: 110px; height: 82px; object-fit: cover; border-radius: 8px; }
+.place-more .soon { cursor: default; color: var(--soft); }
 .place span { color: var(--soft); }
 .next-box { margin-top: 10px; background: var(--tile); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; }
 .next-box h2 { margin: 0; font-weight: 400; font-style: italic; font-size: 26px; }
@@ -314,14 +327,14 @@ a.row:hover::after { transform: scaleX(1); }
     <div class="case-body">
       <dl class="rise">
         <div><dt>Role</dt><dd>Writer</dd></div>
-        <div><dt>Where</dt><dd>Boston · New York City</dd></div>
+        <div><dt>Where</dt><dd>Madison · Boston · New York City</dd></div>
         <div><dt>Status</dt><dd>NYC updated Aug 2026</dd></div>
       </dl>
       <div class="rise" style="--d:.08s">
-        <p class="overview">My favorite spots for food, coffee, shopping and walks in Boston and New York, written for friends. Every spot opens in Google Maps.</p>
-        <ul class="did"><li>Boston: from Kava Neo-Taverna (my all-time favourite) to the North End's Italian dinner spots.</li><li>New York: brunch, dinner, rooftops, dessert, coffee, walks and a bonus list of yoga studios.</li></ul>
-        <div class="nums"><div><b>72</b><span>spots</span></div><div><b>2</b><span>cities</span></div><div><b>15</b><span>sections</span></div></div>
-        <div class="links"><a class="dot caps" href="boston-guide.html">Boston guide</a><a class="dot caps" href="nyc-guide.html">New York guide</a></div>
+        <p class="overview">My favorite spots for food, coffee, shopping and walks in Madison, Boston and New York, written for friends. Every spot opens in Google Maps.</p>
+        <ul class="did"><li>Madison: my home, from The Pancake House to The Harvey House, where I've worked for four years.</li><li>Boston: from Kava Neo-Taverna (my all-time favourite) to the North End's Italian dinner spots.</li><li>New York: brunch, dinner, rooftops, dessert, coffee, walks and a bonus list of yoga studios.</li></ul>
+        <div class="nums"><div><b>102</b><span>spots</span></div><div><b>3</b><span>cities</span></div><div><b>22</b><span>sections</span></div></div>
+        <div class="links"><a class="dot caps" href="madison-guide.html">Madison guide</a><a class="dot caps" href="boston-guide.html">Boston guide</a><a class="dot caps" href="nyc-guide.html">New York guide</a></div>
       </div>
     </div>
   </article>

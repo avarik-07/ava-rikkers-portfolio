@@ -163,6 +163,19 @@ a.row:hover::after { transform: scaleX(1); }
 .place::before { content: ""; grid-row: 1 / 3; align-self: center; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--bg); transition: background .25s, transform .25s; }
 .place:hover::before, .place.on::before { background: var(--dot); transform: scale(1.2); }
 .place b { font-family: var(--sans); font-weight: 500; font-size: 18px; }
+.place::after { content: "+"; grid-column: 3; grid-row: 1 / 3; align-self: center; font-family: var(--sans); font-size: 20px; color: var(--soft); transition: transform .3s; }
+.place { grid-template-columns: auto minmax(0, 1fr) auto; }
+.place b, .place span { grid-column: 2; }
+.place::before { grid-column: 1; }
+.place[aria-expanded="true"]::after { transform: rotate(45deg); }
+.place-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.2, .7, .2, 1); }
+.place-more > div { overflow: hidden; padding-left: 26px; }
+.place-item.open .place-more { grid-template-rows: 1fr; }
+.place-item.open .place-more > div { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.place-more p { margin: 12px 0; }
+.place-more .pics { display: grid; grid-auto-flow: column; grid-auto-columns: 110px; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+.place-more .pics img { width: 110px; height: 82px; object-fit: cover; border-radius: 8px; }
+.place-more .soon { cursor: default; color: var(--soft); }
 .place span { color: var(--soft); }
 .next-box { margin-top: 10px; background: var(--tile); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; }
 .next-box h2 { margin: 0; font-weight: 400; font-style: italic; font-size: 26px; }
@@ -307,11 +320,11 @@ a.row:hover::after { transform: scaleX(1); }
 <main class="wrap">
   <header class="page-head">
     <h1 class="rise in">Essays on culture, place &amp; time, and <em>the places I'd send a friend.</em></h1>
-    <div class="side-copy rise in"><p>I write for Kulterra Collective's journal and Substack, and keep running guides to Boston and New York.</p></div>
+    <div class="side-copy rise in"><p>I write for Kulterra Collective's journal and Substack, and keep running guides to Madison, Boston and New York.</p></div>
   </header>
   <section class="sec"><div class="sec-head"><h2 class="label">Essays</h2></div><div class="essays"><a class="essay rise" style="--d:0.0s;background:#8FA35C" href="https://www.kulterracollective.com/journal/ouwbr9n9997bge5oinxupqqhnrq5jv" target="_blank" rel="noopener"><span class="art"><span>Notes</span></span><span class="txt"><b>Notes on Passivity</b><span>Oct 2026 · Kulterra Collective</span></span></a><a class="essay rise" style="--d:0.07s;background:#B5502E" href="https://www.kulterracollective.com/journal/k71gleyb4nrotycroyf3yx61x9qs48" target="_blank" rel="noopener"><span class="art"><span>Told</span></span><span class="txt"><b>Told to Forget</b><span>Aug 2026 · Kulterra Collective</span></span></a><a class="essay rise" style="--d:0.14s;background:#3F6E9E" href="https://www.kulterracollective.com/journal/timeless-or-naught" target="_blank" rel="noopener"><span class="art"><span>Timeless</span></span><span class="txt"><b>Timeless, or naught</b><span>Jun 2026 · Kulterra Collective</span></span></a><a class="essay rise" style="--d:0.21000000000000002s;background:#C98BB9" href="https://www.kulterracollective.com/journal/the-drina" target="_blank" rel="noopener"><span class="art"><span>Drina</span></span><span class="txt"><b>The Drina</b><span>Mar 2026 · Kulterra Collective</span></span></a></div>
     <div class="more-link"><a class="dot caps" href="https://substack.com/@kulterracollective" target="_blank" rel="noopener">Subscribe on Substack</a></div></section>
-  <section class="sec"><div class="sec-head"><h2 class="label">City guides</h2></div><div class="rows"><a class="row rise" style="--d:0.0s" href="boston-guide.html"><h3>Boston Guide</h3><span class="org">Boston</span><p class="d">Food, coffee, shopping and walks, from Kava Neo-Taverna to the North End.</p><span class="when caps">36 spots <span class="arrow">→</span></span></a><a class="row rise" style="--d:0.05s" href="nyc-guide.html"><h3>New York City Guide</h3><span class="org">New York</span><p class="d">Brunch, dinner, rooftops, dessert, coffee, walks and yoga.</p><span class="when caps">36 spots <span class="arrow">→</span></span></a></div></section>
+  <section class="sec"><div class="sec-head"><h2 class="label">City guides</h2></div><div class="rows"><a class="row rise" style="--d:0.0s" href="madison-guide.html"><h3>Madison City Guide</h3><span class="org">Madison</span><p class="d">My home. Breakfast, supper clubs, coffee, walks and things to do.</p><span class="when caps">30 spots <span class="arrow">→</span></span></a><a class="row rise" style="--d:0.0s" href="boston-guide.html"><h3>Boston Guide</h3><span class="org">Boston</span><p class="d">Food, coffee, shopping and walks, from Kava Neo-Taverna to the North End.</p><span class="when caps">36 spots <span class="arrow">→</span></span></a><a class="row rise" style="--d:0.05s" href="nyc-guide.html"><h3>New York City Guide</h3><span class="org">New York</span><p class="d">Brunch, dinner, rooftops, dessert, coffee, walks and yoga.</p><span class="when caps">36 spots <span class="arrow">→</span></span></a></div></section>
 </main>
 <footer class="wrap"><div class="foot">
   <div class="foot-row">
